@@ -1,5 +1,5 @@
-# DokiDoki
-DokiDoki é o projeto anual da disciplina Programação Orientada a Serviços. O nome tem inspiração da palavra "dókimos" (δόκιμος), que em grego significa "aprovado". Assim, a plataforma foca em estudos para o ENEM, disponibilizando questões de provas anteriores, no estilo de flashcards, para que o usuário possa responder e verificar seus acertos ou corrigir erros. 
+# EstudaENEM
+EstudaENEM é o projeto anual da disciplina Programação Orientada a Serviços. A plataforma foca em estudos para o ENEM, disponibilizando questões de provas anteriores, no estilo de flashcards, para que o usuário possa responder e verificar seus acertos ou corrigir erros. 
 
 ## Equipe
 - Lívia Lopes
