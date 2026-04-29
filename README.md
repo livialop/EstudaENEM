@@ -1,13 +1,16 @@
 # EstudaENEM
 EstudaENEM é o projeto anual da disciplina Programação Orientada a Serviços. A plataforma foca em estudos para o ENEM, disponibilizando questões de provas anteriores, no estilo de flashcards, para que o usuário possa responder e verificar seus acertos ou corrigir erros. 
 
+> [!IMPORTANT]
+> Documentação do projeto [aqui](docs/estudaenem.md).
+
 ## Equipe
 - Lívia Lopes
 - Ezaelly Clara
 - Raissa Kelly
 
 ## Tecnologias
-- Frontend: Next.js
+- Frontend: React
 - Backend: FastAPI
 
 ## Cronograma inicial
