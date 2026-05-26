@@ -1,10 +1,11 @@
-from fastapi import FastAPI
+from fastapi import APIRouter
 
-app = FastAPI()
+home_router = APIRouter(prefix="", tags=["Homepage"])
 
-@app.get("/")
+@home_router.get("/")
 def main():
     return {"message": "Bem-vindo à página inicial do Estuda ENEM!"}
-@app.get("/home")
+
+@home_router.get("/home")
 def home():
     return {"message": "Dashboard do Estuda ENEM"}
