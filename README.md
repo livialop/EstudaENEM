@@ -33,3 +33,20 @@ EstudaENEM é o projeto anual da disciplina Programação Orientada a Serviços.
   - Melhorias de UI/UX;
   - Testes no sistema e correção de bugs;
   - Dashboard de desempenho;
+
+## Cronograma por Requisito Funcional
+
+> [!NOTE]
+> [Requisitos Funcionais](docs/estudaenem.md)
+
+| RF | Data prevista para o backend | Data prevista para o frontend |
+| -- | ---------------------------- | ----------------------------- |
+| RF.1 | 14/06 | 04/07 |
+| RF.2 | 14/06 | 04/07 |
+| RF.3 | 17/06 | 11/07 |
+| RF.4 | 08/08 | 22/08 |
+| RF.5 | 08/08 | 22/08 |
+| RF.6 | 08/08 | 26/09 |
+| RF.7 | 28/06 | 25/07 |
+| RF.8 | 11/07 | 22/08 |
+| RF.9 | 27/07 | 26/09 |
