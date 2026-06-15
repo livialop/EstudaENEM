@@ -1,19 +1,23 @@
 from fastapi import APIRouter, HTTPException, Depends, status
-from os import getenv
 from datetime import datetime, timedelta, timezone
-import jwt
+
 from models.model import Usuario
 from dto.authDto import UsuarioCreate, UsuarioLogin, LoginResponse, UsuarioPublic
+from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 
 from sqlmodel import select
 from sqlmodel import Session
 
 from database.database import get_session
 
+from os import getenv
 from pwdlib import PasswordHash
+from typing import Annotated
+from tokenize import Token
+import jwt
 
 
-
+token_schema = OAuth2PasswordBearer(tokenUrl="token")
 auth_router = APIRouter(prefix="/auth", tags=["Auth"])
 password_hash = PasswordHash.recommended()
 
@@ -23,17 +27,15 @@ JWT_ALGORITHM = getenv("JWT_ALGORITHM")
 JWT_EXPIRES_MIN = int(getenv("JWT_EXPIRES_MIN"))
 
 
-def create_access_token(subject: str, claims: dict) -> str:
+def create_access_token(data: dict) -> str:
     '''Access token do auth JWT (estou usando o PyJWT)'''
-    now = datetime.now(timezone.utc)
-    payload = {
-        "sub": subject,
-        "iat": int(now.timestamp()),
-        "exp": int((now + timedelta(minutes=JWT_EXPIRES_MIN)).timestamp()),
-        **claims,
-    }
-    return jwt.encode(payload, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
-
+    to_encode = data.copy() 
+    expire = datetime.now() + timedelta(minutes=JWT_EXPIRES_MIN)
+    to_encode.update({"exp": expire})
+    token = jwt.encode(
+        to_encode, key=JWT_SECRET_KEY, algorithm=JWT_ALGORITHM
+    )
+    return token
 
 @auth_router.post("/cadastro", response_model=Usuario)
 def cadastrar_usuario(usuario: UsuarioCreate, session: Session = Depends(get_session)):
@@ -64,35 +66,56 @@ def cadastrar_usuario(usuario: UsuarioCreate, session: Session = Depends(get_ses
     return novo_user
 
 
+def get_usuario_logado(token: Annotated[str, Depends(token_schema)], session: Session = Depends(get_session)):
+    credentials_exception = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Sem permissão",
+        headers={"WWW-Authenticate": "Bearer"}
+    )
 
-@auth_router.post("/login", response_model=LoginResponse)
-def login_usuario(
-    loginusuario: UsuarioLogin,
-    session: Session = Depends(get_session),
-):
+    try:
+        payload = jwt.decode(token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+        email = payload.get('sub')
+
+        if not email:
+            raise credentials_exception
+        
+        usuario = session.scalar(
+            select(Usuario).where(
+                Usuario.email == email
+            )
+        )
+
+        if not usuario:
+            raise credentials_exception
+        
+        return usuario
+
+    except Exception:
+        raise credentials_exception
+
+
+@auth_router.post("/login", response_model=Token)
+def login_usuario(session: Session = Depends(get_session), form: OAuth2PasswordRequestForm = Depends()):
     '''Rota de login com JWT'''
+    usuario = session.scalar(
+        select(Usuario).where(
+            Usuario.email == form.username
+        )
+    )
 
-    usuario_db = session.exec(
-        select(Usuario).where(Usuario.email == loginusuario.email)
-    ).first()
-
-    if not usuario_db or not usuario_db.ativo:
-        raise HTTPException(status.HTTP_401_UNAUTHORIZED, detail="Credenciais invalidas.")
-
-    if not password_hash.verify(loginusuario.senha, usuario_db.senha_hash):
-        raise HTTPException(status.HTTP_401_UNAUTHORIZED, detail="Credenciais invalidas.")
-
+    if not usuario:
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Credenciais inválidas.")
+    if not password_hash.verify(form.password, usuario.senha_hash):
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Credenciais inválidas.")
+    
     access_token = create_access_token(
-        subject=str(usuario_db.id),
-        claims={"email": usuario_db.email, "papel": str(usuario_db.papel)},
+        data={
+            'sub': usuario.email
+        }
     )
 
-    usuario_publico = UsuarioPublic(
-        id=usuario_db.id,
-        email=usuario_db.email,
-        nome=usuario_db.nome,
-        papel=str(usuario_db.papel),
-        ativo=usuario_db.ativo,
-    )
-
-    return LoginResponse(access_token=access_token, usuario=usuario_publico)
+    return {
+        'access_token': access_token,
+        'token_type': 'bearer'
+    }
