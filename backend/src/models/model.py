@@ -1,7 +1,8 @@
 import datetime
 from enum import Enum
+from typing import Optional, List
 
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 from sqlalchemy import Column, Enum as SAEnum
 
 
@@ -15,11 +16,13 @@ class PapelEnum(str, Enum):
     aluno = "aluno"
 
 
+# --------- TABELA USUÁRIO ----------
+
 class Usuario(SQLModel, table=True):
     '''Tabela de usuarios'''
     __tablename__ = "usuarios"
 
-    id: int = Field(
+    id: int | None = Field(
         primary_key=True,
         default=None,
     )
@@ -33,3 +36,100 @@ class Usuario(SQLModel, table=True):
     ativo: bool = Field(default=True)
     criado_em: datetime.datetime = Field(default_factory=utc)
     atualizado_em: datetime.datetime = Field(default_factory=utc)
+
+    respostas_usuario: List["Respostas_Usuario"] = Relationship(back_populates="usuario")
+
+
+# --------- TABELAS P/ QUESTOES E PROVAS ---------
+
+class Provas(SQLModel, table=True):
+    '''Tabela para as provas do ENEM'''
+    __tablename__ = "provas"
+    
+    id: int | None = Field(
+        primary_key=True,
+        default=None
+    )
+    ano: int = Field(unique=True)
+    titulo: str = Field(max_length=100)
+
+    questoes: List["Questoes"] = Relationship(back_populates="provas")
+
+
+class Questoes(SQLModel, table=True):
+    '''Tabela para as questões da prova do ENEM'''
+    __tablename__ = "questoes"
+
+    id: int | None = Field(
+        primary_key=True,
+        default=None
+    )
+
+    prova_id: int | None = Field(
+        default=None,
+        foreign_key="usuarios.id"
+    ) 
+
+    numero: int
+    disciplina: str = Field(max_length=100)
+    idioma: str = Field(max_length=50)
+    enunciado: str
+    introducao: str
+    resposta: str = Field(max_length=1)
+
+
+    provas: Optional["Provas"] = Relationship(back_populates="questoes")
+    
+    alternativas: List["Alternativas"] = Relationship(back_populates="questao")
+    respostas_usuario: List["Respostas_Usuario"] = Relationship(back_populates="questao")
+
+
+class Alternativas(SQLModel, table=True):
+    '''Tabela p/ alternativas das questões'''
+    __tablename__ = "alternativas"
+
+    id: int | None = Field(
+        primary_key=True,
+        default=None
+    )
+
+    questao_id: int | None = Field(
+        default=None,
+        foreign_key="questoes.id"
+    )
+
+    letra: str = Field(max_length=1)
+    texto: str
+    correta: bool
+    
+    questao: Optional["Questoes"] = Relationship(back_populates="alternativas")
+
+
+# ---------- TABELA P/ COISAR O DESEMPENHO QND A GNT FOR FAZER -------------
+class Respostas_Usuario(SQLModel, table=True):
+    '''Tabela para fazer as contas do desempenho do usuário posteriormente'''
+    __tablename__ = "respostas_usuario"
+
+
+    id: int | None = Field(
+        primary_key=True,
+        default=None
+    )
+
+    usuario_id: int | None = Field(
+        default=None,
+        foreign_key="usuarios.id"
+    )
+
+    questao_id: int | None = Field(
+        default=None,
+        foreign_key="questoes.id"
+    )
+
+    resposta: str = Field(max_length=1)
+    acertou: bool
+    data_resposta: datetime.datetime = Field(default_factory=utc)
+
+    usuario: Optional["Usuario"] = Relationship(back_populates="respostas_usuario")
+    questao: Optional["Questoes"] = Relationship(back_populates="respostas_usuario")
+
