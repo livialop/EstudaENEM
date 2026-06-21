@@ -13,7 +13,6 @@ from database.database import get_session
 from os import getenv
 from pwdlib import PasswordHash
 from typing import Annotated
-from tokenize import Token
 import jwt
 
 
@@ -95,7 +94,7 @@ def get_usuario_logado(token: Annotated[str, Depends(token_schema)], session: Se
         raise credentials_exception
 
 
-@auth_router.post("/login", response_model=Token)
+@auth_router.post("/login", response_model=LoginResponse)
 def login_usuario(session: Session = Depends(get_session), form: OAuth2PasswordRequestForm = Depends()):
     '''Rota de login com JWT'''
     usuario = session.scalar(
@@ -117,5 +116,6 @@ def login_usuario(session: Session = Depends(get_session), form: OAuth2PasswordR
 
     return {
         'access_token': access_token,
-        'token_type': 'bearer'
+        'token_type': 'bearer',
+        'usuario': usuario
     }
