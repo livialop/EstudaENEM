@@ -1,25 +1,27 @@
 /* =============================
    RESET & BASE
    ============================= */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 :root {
-  --blue: #1A73E8;
+  --blue: #1a73e8;
   --blue-dark: #1558b0;
-  --blue-light: #EAF2FF;
-  --yellow: #F5C518;
-  --text-dark: #0D1B2A;
-  --text-muted: #6B7A90;
+  --blue-light: #eaf2ff;
+  --yellow: #f5c518;
+  --text-dark: #0d1b2a;
+  --text-muted: #6b7a90;
   --bg: #ffffff;
-  --bg-section: #F7F9FC;
-  --border: #E4EAF1;
+  --bg-section: #f7f9fc;
+  --border: #e4eaf1;
   --radius: 12px;
-  --shadow: 0 4px 24px rgba(26, 115, 232, 0.10);
-  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --shadow: 0 4px 24px rgba(26, 115, 232, 0.1);
+  --font: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
 body {
@@ -51,21 +53,23 @@ ul {
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
 }
 
 .btn--primary {
   background: var(--blue);
   color: #fff;
-  box-shadow: 0 2px 12px rgba(26,115,232,0.25);
+  box-shadow: 0 2px 12px rgba(26, 115, 232, 0.25);
 }
 
 .btn--primary:hover {
   background: var(--blue-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 18px rgba(26,115,232,0.35);
+  box-shadow: 0 4px 18px rgba(26, 115, 232, 0.35);
 }
-
 
 .btn--lg {
   padding: 14px 32px;
@@ -80,7 +84,7 @@ ul {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
@@ -110,6 +114,7 @@ ul {
 .navbar__links {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 28px;
   flex: 1;
 }
@@ -156,7 +161,7 @@ ul {
    HERO
    ============================= */
 .hero {
-
+  position: relative;
   max-width: 1160px;
   margin: 0 auto;
   padding: 72px 24px 40px;
@@ -199,6 +204,18 @@ ul {
   margin-top: 20px;
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+.hero__joao-image {
+  position: absolute;
+  right: 24px;
+  bottom: 120px;
+  width: 950px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero__avatars {
@@ -266,7 +283,7 @@ ul {
   padding: 8px 16px;
   font-size: 0.78rem;
   font-weight: 700;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   z-index: 2;
   letter-spacing: 0.5px;
 }
@@ -313,7 +330,9 @@ ul {
   border-radius: var(--radius);
   padding: 28px 24px;
   border: 1px solid var(--border);
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
 }
 
 .feature-card:hover {
@@ -336,12 +355,30 @@ ul {
   height: 22px;
 }
 
-.feature-card__icon--blue   { background: #EAF2FF; color: var(--blue); }
-.feature-card__icon--green  { background: #E6F9EE; color: #2a9d5c; }
-.feature-card__icon--purple { background: #F3EEFF; color: #7c3aed; }
-.feature-card__icon--orange { background: #FFF3E6; color: #e05c00; }
-.feature-card__icon--teal   { background: #E6F7F9; color: #0891b2; }
-.feature-card__icon--red    { background: #FEE9E9; color: #dc2626; }
+.feature-card__icon--blue {
+  background: #eaf2ff;
+  color: var(--blue);
+}
+.feature-card__icon--green {
+  background: #e6f9ee;
+  color: #2a9d5c;
+}
+.feature-card__icon--purple {
+  background: #f3eeff;
+  color: #7c3aed;
+}
+.feature-card__icon--orange {
+  background: #fff3e6;
+  color: #e05c00;
+}
+.feature-card__icon--teal {
+  background: #e6f7f9;
+  color: #0891b2;
+}
+.feature-card__icon--red {
+  background: #fee9e9;
+  color: #dc2626;
+}
 
 .feature-card h3 {
   font-size: 0.98rem;
@@ -360,17 +397,17 @@ ul {
    FOOTER
    ============================= */
 .footer {
-  background: #0C64F4;
+  background: #0c64f4;
   color: #9ab0c7;
   padding: 48px 24px;
 }
 
 .footer__container {
   max-width: 1160px;
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 40px;
   flex-wrap: wrap;
 }

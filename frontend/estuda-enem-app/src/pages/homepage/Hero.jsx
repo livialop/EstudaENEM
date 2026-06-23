@@ -1,4 +1,5 @@
 import React from "react";
+import JoaoEnemImage from "../../assets/Joao_ENEM.png";
 
 export default function Hero() {
   return (
@@ -24,11 +25,11 @@ export default function Hero() {
         </div>
 
         <div className="hero__social-proof">
-
           <span>Plataforma totalmente gratuita</span>
         </div>
       </div>
 
+      <img src={JoaoEnemImage} alt="João ENEM" className="hero__joao-image" />
     </section>
   );
 }
