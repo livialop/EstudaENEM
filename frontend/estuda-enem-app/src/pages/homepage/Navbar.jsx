@@ -1,0 +1,40 @@
+import React, { useState } from "react";
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="navbar">
+      <div className="navbar__container">
+        <a href="/" className="navbar__logo">
+          Estuda<span>ENEM</span>
+        </a>
+
+        <nav
+          className={`navbar__links ${
+            menuOpen ? "navbar__links--open" : ""
+          }`}
+        >
+          <a href="#inicio">Simulados</a>
+          <a href="#recursos">Questões</a>
+          <a href="#sobre">Conteúdos</a>
+          <a href="#contato">Sobre nós</a>
+        </nav>
+
+        <div className="navbar__actions">
+          <button className="btn btn--ghost">Entrar</button>
+          <button className="btn btn--primary">Cadastrar</button>
+        </div>
+
+        <button
+          className="navbar__toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+  );
+}
