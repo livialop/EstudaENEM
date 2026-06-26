@@ -23,7 +23,11 @@
   --shadow: 0 4px 24px rgba(26, 115, 232, 0.1);
   --font: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
-
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 body {
   font-family: var(--font);
   background: var(--bg);
@@ -161,13 +165,11 @@ ul {
    HERO
    ============================= */
 .hero {
-  position: relative;
   max-width: 1160px;
-  margin: 0 auto;
   padding: 72px 24px 40px;
   display: flex;
   align-items: center;
-  gap: 48px;
+  justify-content: center;
   min-height: calc(100vh - 64px);
 }
 
@@ -353,31 +355,6 @@ ul {
 .feature-card__icon svg {
   width: 22px;
   height: 22px;
-}
-
-.feature-card__icon--blue {
-  background: #eaf2ff;
-  color: var(--blue);
-}
-.feature-card__icon--green {
-  background: #e6f9ee;
-  color: #2a9d5c;
-}
-.feature-card__icon--purple {
-  background: #f3eeff;
-  color: #7c3aed;
-}
-.feature-card__icon--orange {
-  background: #fff3e6;
-  color: #e05c00;
-}
-.feature-card__icon--teal {
-  background: #e6f7f9;
-  color: #0891b2;
-}
-.feature-card__icon--red {
-  background: #fee9e9;
-  color: #dc2626;
 }
 
 .feature-card h3 {
