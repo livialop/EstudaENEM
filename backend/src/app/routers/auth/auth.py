@@ -3,7 +3,7 @@ from datetime import datetime, timedelta, timezone
 
 from models.model import Usuario
 from dto.authDto import UsuarioCreate, UsuarioLogin, LoginResponse, UsuarioPublic
-from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
+from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer, HTTPBearer, HTTPAuthorizationCredentials
 
 from sqlmodel import select
 from sqlmodel import Session
@@ -16,9 +16,10 @@ from typing import Annotated
 import jwt
 
 
-token_schema = OAuth2PasswordBearer(tokenUrl="token")
+token_schema = OAuth2PasswordBearer(tokenUrl="/auth/login")
 auth_router = APIRouter(prefix="/auth", tags=["Auth"])
 password_hash = PasswordHash.recommended()
+security_scheme = HTTPBearer()
 
 
 JWT_SECRET_KEY = getenv("JWT_SECRET_KEY")
@@ -29,7 +30,7 @@ JWT_EXPIRES_MIN = int(getenv("JWT_EXPIRES_MIN"))
 def create_access_token(data: dict) -> str:
     '''Access token do auth JWT (estou usando o PyJWT)'''
     to_encode = data.copy() 
-    expire = datetime.now() + timedelta(minutes=JWT_EXPIRES_MIN)
+    expire = datetime.now(timezone.utc) + timedelta(minutes=JWT_EXPIRES_MIN)
     to_encode.update({"exp": expire})
     token = jwt.encode(
         to_encode, key=JWT_SECRET_KEY, algorithm=JWT_ALGORITHM

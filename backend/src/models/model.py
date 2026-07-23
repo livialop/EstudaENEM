@@ -67,7 +67,7 @@ class Questoes(SQLModel, table=True):
 
     prova_id: int | None = Field(
         default=None,
-        foreign_key="usuarios.id"
+        foreign_key="provas.id"
     ) 
 
     numero: int
