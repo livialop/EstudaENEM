@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:#f3f6fb;
+}
+
+.login-page{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* ================= HEADER ================= */
+
+.topbar{
+    height:72px;
+    background:#fff;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 60px;
+
+    box-shadow:0 1px 8px rgba(0,0,0,.04);
+
+    position:relative;
+    z-index:10;
+}
+
+.logo{
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+}
+
+.logo span{
+    color:#2b6cff;
+}
+
+.login-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.login-area span{
+    color:#8d8d8d;
+    font-size:13px;
+}
+
+.login-area button{
+    width:90px;
+    height:38px;
+
+    border-radius:7px;
+
+    border:1px solid #2f6df5;
+
+    background:white;
+    color:#2f6df5;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.login-area button:hover{
+    background:#2f6df5;
+    color:white;
+}
+
+/* ================= MAIN ================= */
+
+.login-content{
+
+    position:relative;
+
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:40px 80px;
+}
+
+/* ================= ESQUERDA ================= */
+
+.left-side{
+
+    position:absolute;
+
+    left:90px;
+
+    top:90px;
+
+    width:170px;
+    height:520px;
+}
+
+.left-side img{
+
+    position:absolute;
+
+    width:50px;
+
+    opacity:.75;
+
+    filter:
+    brightness(0)
+    saturate(100%)
+    invert(59%)
+    sepia(97%)
+    saturate(775%)
+    hue-rotate(189deg)
+    brightness(102%)
+    contrast(100%);
+}
+
+/* nuvem */
+
+.left-side img:nth-child(1){
+
+    width:58px;
+
+    top:20px;
+
+    left:150px;
+}
+
+/* livro */
+
+.left-side img:nth-child(2){
+
+    width:58px;
+
+    top:240px;
+
+    left:-20px;
+}
+
+/* lápis */
+
+.left-side img:nth-child(3){
+
+    width:58px;
+
+    bottom:25px;
+
+    left: 150px;
+}
+
+/* ================= CARD ================= */
+
+.login-card{
+
+    position:relative;
+
+    z-index:3;
+
+    width:470px;
+
+    background:white;
+
+    border-radius:10px;
+
+    padding:42px;
+
+    margin-left:-40px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+}
+
+.login-card h1{
+
+    text-align:center;
+
+    color:#182544;
+
+    font-size:25px;
+
+    font-family:Poppins,sans-serif;
+}
+
+.login-card p{
+
+    margin-top:8px;
+
+    text-align:center;
+
+    color:#b7b7b7;
+
+    font-size:15px;
+
+    line-height:22px;
+}
+
+.login-card hr{
+
+    margin:30px 0;
+
+    border:none;
+
+    border-top:1px solid #ececec;
+}
+
+/* ================= FORM ================= */
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+label{
+
+    font-size:13px;
+
+    color:#303030;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+}
+
+.input{
+
+    height:43px;
+
+    border:1px solid #dcdcdc;
+
+    border-radius:4px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:0 14px;
+
+    margin-bottom:18px;
+}
+
+.input svg{
+
+    color:#9d9d9d;
+}
+
+.input input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    font-size:13px;
+}
+
+.login-button{
+
+    margin-top:8px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:4px;
+
+    background:#2d6df6;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.login-button:hover{
+
+    background:#2158ca;
+}
+
+/* ================= JOÃO ENEM ================= */
+
+.right-side{
+
+    position:absolute;
+
+    right:20px;
+
+    bottom:-5px;
+
+    z-index:1;
+}
