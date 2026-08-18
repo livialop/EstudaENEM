@@ -37,7 +37,7 @@ EstudaENEM é o projeto anual da disciplina Programação Orientada a Serviços.
 ## Cronograma por Requisito Funcional
 
 > [!NOTE]
-> [Requisitos Funcionais](docs/estudaenem.md)
+> [Requisitos Funcionais](/requisitos.md)
 
 | RF | Data prevista para o backend | Data prevista para o frontend |
 | -- | ---------------------------- | ----------------------------- |

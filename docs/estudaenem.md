@@ -86,36 +86,3 @@ estudaenem/
 | finalizar_simulado            | `POST /exams/{exam_id}/finish`                   | Finaliza simulado |
 | user_stats                    | `GET /users/me/stats`                            | Estatísticas do usuário |
 
-
-## Requisitos Funcionais, Não Funcionais e Regras de Negócio
-### Requisitos Funcionais
-- **RF.1**: O sistema deve permitir o cadastro de usuários.
-- **RF.2**: O sistema deve permitir o login de usuários previamente cadastrados.
-- **RF.3**: O sistema deve permitir que o usuário altere suas informações pessoais, exceto o email.
-- **RF.4**: O sistema deve permitir que o usuário escolha o ano da prova do ENEM que ele responderá as questões.
-- **RF.5**: O sistema deve permitir que o usuário, após escolher o ano, escolha o dia da prova que ele responderá as questões.
-- **RF.6**: O sistema deve exibir para o usuário o tempo que ele utiliza para responder um conjunto de questões. 
-    - **RF.6.1**: O tempo deve ser calculado desde a entrada até a saída da página de resolução.
-- **RF.7**: O sistema deve exibir ao usuário um ranking semanal de alunos da plataforma que acertou mais questões.
-- **RF.8**: O sistema deve permitir filtrar questões por área de conhecimento.
-- **RF.9**: O sistema deve permitir que o usuário possa realizar simulado.
-    - **RF.9.1**: As opções para simulado devem ser as seguintes: Simulado por Área de Conhecimento; Simulado por Prova do ENEM.
-
-### Requisitos Não Funcionais
-- **RNF.1**: O sistema deve ter tempo de resposta inferior a 3 segundos para carregamento das questões. 
-- **RNF.2**: O sistema deve ser acessível via navegador web (compatível com Chrome, Edge e Firefox). 
-- **RNF.3**: O sistema deve garantir a segurança dos dados dos usuários (criptografia de senha). 
-- **RNF.4**: O sistema deve estar disponível 24 horas por dia. 
-- **RNF.5**: A interface deve ser simples e intuitiva para estudantes do ensino médio. 
-
-### Regras de Negócio
-- **RN.1**: O email do usuário deve ser único no sistema (não pode existir dois cadastros com o mesmo email).
-- **RN.2**: O usuário não poderá alterar seu email após o cadastro.
-- **RN.3**: O ranking semanal deve ser resetado automaticamente a cada nova semana.
-- **RN.4**: A posição no ranking deve ser baseada na quantidade de acertos, e em caso de empate, no menor tempo gasto.
-- **RN.5**: O usuário só poderá acessar as questões após selecionar o ano e o dia da prova.
-- **RN.6**: O tempo de resolução deve ser contabilizado apenas enquanto o usuário estiver na página de questões.
-- **RN.7**: Cada questão deve possuir apenas uma alternativa correta.
-- **RN.8**: O sistema deve impedir o envio de respostas em branco no simulado.
-- **RN.9**: O resultado do simulado deve ser exibido apenas após o término ou envio das respostas.
-- **RN.10**: O sistema deve permitir apenas simulados válidos conforme o modelo do ENEM (divisão por áreas ou prova completa).
