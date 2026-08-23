@@ -1,0 +1,908 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f3f8ff;
+  color: #0d0d0d;
+}
+
+/* =========================================
+   CONTAINER PRINCIPAL
+========================================= */
+
+.app {
+  min-height: 100vh;
+  background: #f3f8ff;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  width: 100%;
+  height: 66px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 29px;
+  font-weight: 700;
+  color: #102544;
+}
+
+.logo span {
+  color: #1769ff;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  margin-left: 80px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #111111;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.nav a:hover {
+  color: #1769ff;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #1261e8;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.user-menu svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================
+   ÁREA PRINCIPAL
+========================================= */
+
+.main {
+  min-height: calc(100vh - 66px);
+  padding: 58px 55px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 55px;
+}
+
+/* =========================================
+   ÁREA DE PERFIL
+========================================= */
+
+.profile-section {
+  display: flex;
+  gap: 32px;
+  position: relative;
+  z-index: 3;
+}
+
+.profile-card,
+.personal-card {
+  width: 332px;
+  height: 247px;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow:
+    0 3px 5px rgba(30, 100, 200, 0.15),
+    0 8px 20px rgba(30, 100, 200, 0.08);
+}
+
+/* =========================================
+   CARD DA FOTO
+========================================= */
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+.change-photo {
+  height: 37px;
+  min-width: 158px;
+  border: none;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #1265ef;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 70, 180, 0.15);
+  transition: 0.2s ease;
+}
+
+.change-photo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0, 70, 180, 0.2);
+}
+
+/* =========================================
+   DADOS PESSOAIS
+========================================= */
+
+.personal-card {
+  padding: 31px 32px;
+}
+
+.personal-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 31px;
+}
+
+.personal-title svg {
+  width: 25px;
+  height: 25px;
+  stroke-width: 1.5;
+}
+
+/* Campos */
+
+.input-box {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  margin-bottom: 17px;
+}
+
+.input-icon {
+  width: 22px;
+  margin-right: 14px;
+  color: #111111;
+}
+
+.input-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-label {
+  font-size: 14px;
+  line-height: 15px;
+  color: #111111;
+}
+
+.input-value {
+  font-size: 12px;
+  line-height: 13px;
+  color: #6c7078;
+}
+
+.edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 37px;
+  min-width: 184px;
+  margin: 3px auto 0;
+  border: none;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #1265ef;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 70, 180, 0.15);
+  transition: 0.2s ease;
+}
+
+.edit-button:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   BOTÃO LOGOUT
+========================================= */
+
+.logout {
+  position: absolute;
+  top: 93px;
+  right: 24px;
+  width: 136px;
+  height: 36px;
+  background: #ffffff;
+  border: none;
+  border-radius: 4px;
+  color: #1265ef;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 70, 180, 0.14);
+  cursor: pointer;
+  z-index: 5;
+  transition: 0.2s ease;
+}
+
+.logout:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   PAINEL DE DESEMPENHO
+========================================= */
+
+.progress-card {
+  width: 790px;
+  height: 368px;
+  margin-top: 57px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px 32px 30px;
+  box-shadow:
+    0 5px 20px rgba(40, 110, 210, 0.12);
+  position: relative;
+  z-index: 3;
+}
+
+/* =========================================
+   TOPO DO PAINEL
+========================================= */
+
+.progress-top {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 35px;
+}
+
+.progress-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.progress-icon {
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background: #edf4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1265ef;
+  flex-shrink: 0;
+}
+
+.progress-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.progress-title h2,
+.evolution-title h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.progress-title p,
+.evolution-title p {
+  color: #888888;
+  font-size: 10px;
+  line-height: 13px;
+}
+
+/* =========================================
+   GRÁFICO DE ROSCA
+========================================= */
+
+.donut-container {
+  width: 125px;
+  height: 125px;
+  margin: 28px 0 0 35px;
+  position: relative;
+}
+
+.donut {
+  width: 113px;
+  height: 113px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #1769ff 0deg 259deg,
+    #e7eef8 259deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut::before {
+  content: "";
+  width: 87px;
+  height: 87px;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+}
+
+.donut-text {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+}
+
+.donut-value {
+  display: block;
+  font-size: 23px;
+  font-weight: 700;
+  color: #102544;
+}
+
+.donut-label {
+  display: block;
+  font-size: 8px;
+  color: #111111;
+}
+
+/* =========================================
+   GRÁFICO DE EVOLUÇÃO
+========================================= */
+
+.evolution-chart {
+  height: 150px;
+  margin-top: 26px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.chart-lines {
+  position: absolute;
+  left: 30px;
+  right: 0;
+  top: 5px;
+  height: 108px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #e6eef8 0,
+    #e6eef8 1px,
+    transparent 1px,
+    transparent 27px
+  );
+}
+
+.chart-line {
+  position: absolute;
+  left: 48px;
+  top: 65px;
+  width: 220px;
+  height: 60px;
+  border-top: 2px solid #1769ff;
+  transform: rotate(-14deg);
+  transform-origin: left center;
+}
+
+.chart-point {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #1769ff;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.chart-value {
+  position: absolute;
+  color: #1769ff;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* =========================================
+   ESTATÍSTICAS
+========================================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 17px;
+  margin-top: 18px;
+}
+
+.stat-card {
+  height: 76px;
+  border-radius: 9px;
+  background: #ffffff;
+  box-shadow:
+    0 4px 10px rgba(50, 110, 190, 0.15);
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 10px;
+}
+
+.stat-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon.blue {
+  color: #1769ff;
+  border: 2px solid #1769ff;
+}
+
+.stat-icon.green {
+  color: #16c900;
+  border: 2px solid #16c900;
+}
+
+.stat-icon.red {
+  color: #ff2020;
+  border: 2px solid #ff2020;
+}
+
+.stat-icon.clock {
+  color: #1769ff;
+  border: 2px solid #1769ff;
+}
+
+.stat-number {
+  display: block;
+  font-size: 17px;
+  line-height: 19px;
+  color: #111111;
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  line-height: 14px;
+  color: #111111;
+}
+
+/* =========================================
+   ILUSTRAÇÃO DO USUÁRIO
+========================================= */
+
+.user-illustration {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 570px;
+  max-width: 42vw;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.user-illustration img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .header {
+    padding: 0 30px;
+  }
+
+  .nav {
+    gap: 30px;
+    margin-left: 20px;
+  }
+
+  .main {
+    padding-left: 30px;
+  }
+
+  .progress-card {
+    width: 720px;
+  }
+
+  .user-illustration {
+    opacity: 0.25;
+    width: 500px;
+  }
+}
+
+@media (max-width: 850px) {
+
+  .header {
+    height: auto;
+    min-height: 70px;
+    padding: 18px 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    gap: 30px;
+  }
+
+  .main {
+    padding: 40px 20px;
+  }
+
+  .page-title {
+    margin-bottom: 30px;
+  }
+
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-card,
+  .personal-card {
+    width: min(100%, 400px);
+  }
+
+  .progress-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .progress-top {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .user-illustration {
+    display: none;
+  }
+
+  .logout {
+    position: static;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .user-menu {
+    font-size: 15px;
+  }
+
+  .nav {
+    gap: 18px;
+  }
+
+  .nav a {
+    font-size: 14px;
+  }
+
+  .profile-card,
+  .personal-card {
+    width: 100%;
+  }
+
+  .progress-card {
+    padding: 20px 15px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   CLASSES USADAS PELA PÁGINA REACT ATUAL
+========================================= */
+
+.perfil-page {
+  min-height: calc(100vh - 66px);
+  padding: 58px 55px 60px;
+  background: #f3f8ff;
+}
+
+.perfil-page > h1 {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.perfil-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 332px));
+  gap: 32px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(40, 110, 210, 0.12);
+}
+
+.foto-card,
+.dados-card {
+  min-height: 247px;
+  padding: 30px 32px;
+}
+
+.foto-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto-card .avatar {
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 18px;
+}
+
+.link-btn,
+.btn-primary,
+.btn-secondary {
+  border: 0;
+  border-radius: 4px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.link-btn {
+  background: #ffffff;
+  color: #1265ef;
+  box-shadow: 0 3px 10px rgba(0, 70, 180, 0.15);
+}
+
+.dados-card h2 {
+  margin-bottom: 24px;
+  font-size: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 16px;
+}
+
+.field-label {
+  color: #6c7078;
+  font-size: 12px;
+}
+
+.field-value {
+  color: #111111;
+  font-size: 15px;
+}
+
+.progresso-card {
+  max-width: 790px;
+  margin-top: 40px;
+  padding: 25px 32px 30px;
+}
+
+.progresso-header h2,
+.evolucao-chart h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.progresso-header p,
+.chart-subtitle {
+  color: #888888;
+  font-size: 12px;
+}
+
+.progresso-body {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  margin-top: 20px;
+}
+
+.donut-wrapper {
+  position: relative;
+  flex: 0 0 140px;
+}
+
+.donut-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-label strong {
+  color: #102544;
+  font-size: 23px;
+}
+
+.donut-label span {
+  font-size: 8px;
+}
+
+.evolucao-chart {
+  min-width: 0;
+}
+
+.evolucao-chart svg {
+  display: block;
+  max-width: 100%;
+  margin-top: 12px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 17px;
+  margin-top: 20px;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f7faff;
+}
+
+.stat-box strong {
+  color: #111111;
+  font-size: 17px;
+}
+
+.stat-box span {
+  color: #6c7078;
+  font-size: 11px;
+}
+
+.stat-box.acerto strong {
+  color: #16a34a;
+}
+
+.stat-box.erro strong {
+  color: #dc2626;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(16, 37, 68, 0.4);
+}
+
+.modal-card {
+  width: min(100%, 420px);
+  gap: 12px;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-card h2 {
+  margin-bottom: 12px;
+}
+
+.modal-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.modal-card input {
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  color: #1265ef;
+  background: #edf4ff;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background: #1265ef;
+}
+
+@media (max-width: 850px) {
+  .perfil-page {
+    padding: 40px 20px;
+  }
+
+  .perfil-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progresso-card {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .progresso-body,
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .progresso-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats-row {
+    display: grid;
+  }
+}
