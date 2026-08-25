@@ -1,5 +1,5 @@
 import uvicorn
-from database.database import create_db, DB
+from database.database import DB
 
 if __name__ == "__main__":
     # create_db(DB)
