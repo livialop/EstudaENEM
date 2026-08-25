@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header className="navbar">
       <div className="navbar__container">
-        <a href="/" className="navbar__logo">
+        <a onClick={() => navigate("/")} className="navbar__logo">
           Estuda<span>ENEM</span>
         </a>
 
@@ -22,8 +24,8 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar__actions">
-          <button className="btn btn--ghost">Entrar</button>
-          <button className="btn btn--primary">Cadastrar</button>
+          <button onClick={() => navigate("/login")} className="btn btn--ghost">Entrar</button>
+          <button onClick={() => navigate("/register")} className="btn btn--primary">Cadastrar</button>
         </div>
 
         <button

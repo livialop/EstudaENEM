@@ -1,5 +1,7 @@
 import { User, Mail, Lock } from "lucide-react";
 
+// TODO testar com o backend
+
 export default function RegisterForm() {
   return (
     <section className="register-card">
