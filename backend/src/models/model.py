@@ -3,7 +3,7 @@ from enum import Enum
 from typing import Optional, List
 
 from sqlmodel import SQLModel, Field, Relationship
-from sqlalchemy import Column, Enum as SAEnum
+from sqlalchemy import Column, Enum as SAEnum, UniqueConstraint, Text
 
 
 def utc() -> datetime.datetime:
@@ -59,6 +59,9 @@ class Provas(SQLModel, table=True):
 class Questoes(SQLModel, table=True):
     '''Tabela para as questões da prova do ENEM'''
     __tablename__ = "questoes"
+    __table_args__ = (
+        UniqueConstraint("prova_id", "numero", "idioma", name="uq_questoes_prova_numero_idioma"),
+    )
 
     id: int | None = Field(
         primary_key=True,
@@ -70,11 +73,12 @@ class Questoes(SQLModel, table=True):
         foreign_key="provas.id"
     ) 
 
+    titulo: str 
     numero: int
-    disciplina: str = Field(max_length=100)
-    idioma: str = Field(max_length=50)
-    enunciado: str
-    introducao: str
+    disciplina: str | None = Field(default=None, max_length=100)
+    idioma: str | None = Field(max_length=50)
+    enunciado: str | None = Field(default=None, sa_column=Column(Text))
+    introducao: str | None = Field(default=None, sa_column=Column(Text))
     resposta: str = Field(max_length=1)
 
 
@@ -88,6 +92,14 @@ class Alternativas(SQLModel, table=True):
     '''Tabela p/ alternativas das questões'''
     __tablename__ = "alternativas"
 
+    __table_args__ = (
+        UniqueConstraint(
+            "questao_id",
+            "letra",
+            name="uq_alternativa_questao_letra"
+        ),
+    )
+
     id: int | None = Field(
         primary_key=True,
         default=None
@@ -99,7 +111,8 @@ class Alternativas(SQLModel, table=True):
     )
 
     letra: str = Field(max_length=1)
-    texto: str
+    texto: str | None = Field(default=None, sa_column=Column(Text))
+    arquivo: str | None = Field(default=None)
     correta: bool
     
     questao: Optional["Questoes"] = Relationship(back_populates="alternativas")
