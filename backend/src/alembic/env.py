@@ -7,6 +7,10 @@ from sqlmodel import SQLModel
 from models.model import *
 from alembic import context
 
+# alembic revision --autogenerate
+# alembic upgrade head
+
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config

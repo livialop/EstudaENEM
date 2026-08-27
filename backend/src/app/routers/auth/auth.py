@@ -1,5 +1,5 @@
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Response
 
 from ...dto.authDto import UsuarioCreate, LoginResponse
 from database.database import get_session
@@ -32,6 +32,7 @@ def cadastrar_usuario(
 
 @auth_router.post("/login", response_model=LoginResponse)
 def login_usuario(
+    response: Response,
     session: Session = Depends(get_session), 
     form: OAuth2PasswordRequestForm = Depends()
 ) -> dict:
@@ -47,10 +48,18 @@ def login_usuario(
         data={"sub": usuario.email}
     )
 
+    response.set_cookie(
+        key="access_token",
+        value=access_token,
+        httponly=True,
+        secure=False, # pq eu uso http no localhost
+        samesite="lax",
+        max_age=1800
+    )
+
     return {
-        'access_token': access_token,
-        'token_type': 'bearer',
-        'usuario': usuario
+        "message": "Login realizado com sucesso!",
+        "usuario": usuario
     }
 
 

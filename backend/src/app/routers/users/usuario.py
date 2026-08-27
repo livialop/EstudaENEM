@@ -9,6 +9,8 @@ from app.routers.auth.auth import get_usuario_logado
 usuario_router = APIRouter(prefix="/usuario", tags=["Usuario"])
 
 
+# TODO: mudar para arquitetura 4 camadas e alterar a checagem de access_token a partir da pasta security.
+
 @usuario_router.get("/me", response_model=UsuarioResponse)
 def get_usuario_atual(usuario: Usuario = Depends(get_usuario_logado)):
 	"""Retorna os dados do usuário autenticado"""

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr
 from sqlmodel import Field
-from typing import Optional, Literal
+from typing import Literal
 
 class UsuarioCreate(BaseModel):
     email: EmailStr = Field(max_length=255)
@@ -23,7 +23,5 @@ class UsuarioPublic(BaseModel):
 
 
 class LoginResponse(BaseModel):
-    access_token: str
-    token_type: str = "Bearer"
-    usuario: UsuarioPublic
+    message: str
     

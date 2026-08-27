@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta, timezone
+from fastapi import Cookie, HTTPException, status
 from os import getenv
 import jwt
 
@@ -27,3 +28,12 @@ def decode_access_token(token: str) -> dict:
         key=JWT_SECRET_KEY,
         algorithms=[JWT_ALGORITHM]
     )
+
+
+def get_token_from_cookie(access_token: str | None = Cookie(default=None)):
+    if access_token is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Não autenticado."
+        )
+    return access_token
