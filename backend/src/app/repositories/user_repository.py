@@ -8,16 +8,22 @@ from database.database import get_session
 #TODO: ver onde colocar validações nas camadas 
 
 
-def buscar_por_email(email: str, 
-                     session: Session = Depends(get_session)) -> Usuario | None:
+def buscar_por_email(
+        email: str, 
+        session: Session = Depends(get_session)
+) -> Usuario | None:
+
     return session.scalar(
         select(Usuario).where(Usuario.email == email)
     )
 
-def criar_user(nome: str, 
-               email: str, 
-               senha_hash: str, 
-               session: Session = Depends(get_session)) -> Usuario:
+def criar_user(
+        nome: str, 
+        email: str, 
+        senha_hash: str, 
+        session: Session = Depends(get_session)
+) -> Usuario:
+
     usuario = Usuario(
         nome=nome,
         email=email,
