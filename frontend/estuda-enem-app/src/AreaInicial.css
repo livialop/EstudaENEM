@@ -38,25 +38,31 @@
   }
   
   .dash-navbar__container {
-    max-width: 1200px;
-    padding: 14px 24px;
-  
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  
-    gap: 24px;
+    height:72px;
+    background:#fff;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 60px;
+
+    box-shadow:0 1px 8px rgba(0,0,0,.04);
+
+    position:relative;
+    z-index:10;
   }
   
   .dash-navbar__logo {
+    font-size: 1.3rem;
     font-weight: 800;
-    font-size: 19px;
-    color: var(--dash-ink);
-    cursor: pointer;
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
   }
   
   .dash-navbar__logo span {
-    color: var(--dash-blue-600);
+    color:#2b6cff;
   }
   
   .dash-navbar__links {

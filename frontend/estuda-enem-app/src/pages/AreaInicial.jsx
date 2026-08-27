@@ -1,12 +1,12 @@
 // src/pages/Dashboard.jsx
 
-import TopBar from "./dashboard/TopBar";
-import Sidebar from "./dashboard/Sidebar";
-import WelcomeBanner from "./dashboard/WelcomeBanner";
-import QuickActions from "./dashboard/QuickActions";
-import PerformanceCard from "./dashboard/PerformanceCard";
-import JourneySteps from "./dashboard/JourneySteps";
-import "../Dashboard.css";
+import TopBar from "./areainicial/TopBar";
+import Sidebar from "./areainicial/Sidebar";
+import WelcomeBanner from "./areainicial/WelcomeBanner";
+import QuickActions from "./areainicial/QuickActions";
+import PerformanceCard from "./areainicial/PerformanceCard";
+import JourneySteps from "./areainicial/JourneySteps";
+import "../AreaInicial.css";
 
 export default function Dashboard() {
   return (
