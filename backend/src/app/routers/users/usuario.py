@@ -3,7 +3,7 @@ from sqlmodel import Session, select
 
 from database.database import get_session
 from models.model import Usuario
-from dto.usuariosDto import UsuarioResponse, UsuarioUpdate
+from ...dto.usuariosDto import UsuarioResponse, UsuarioUpdate
 from app.routers.auth.auth import get_usuario_logado
 
 usuario_router = APIRouter(prefix="/usuario", tags=["Usuario"])

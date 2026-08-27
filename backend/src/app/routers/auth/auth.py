@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Depends, status
 from datetime import datetime, timedelta, timezone
 
 from models.model import Usuario
-from dto.authDto import UsuarioCreate, UsuarioLogin, LoginResponse, UsuarioPublic
+from ...dto.authDto import UsuarioCreate, LoginResponse
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer, HTTPBearer, HTTPAuthorizationCredentials
 
 from sqlmodel import select
@@ -14,6 +14,11 @@ from os import getenv
 from pwdlib import PasswordHash
 from typing import Annotated
 import jwt
+
+from ...services.auth_service import cadastrar_user
+
+
+# TODO: usar arquitetura em 4 camadas.
 
 
 token_schema = OAuth2PasswordBearer(tokenUrl="/auth/login")
@@ -38,32 +43,15 @@ def create_access_token(data: dict) -> str:
     return token
 
 @auth_router.post("/cadastro", response_model=Usuario)
-def cadastrar_usuario(usuario: UsuarioCreate, session: Session = Depends(get_session)):
+def cadastrar_usuario(
+    usuario: UsuarioCreate, 
+    session: Session = Depends(get_session)):
     '''Rota de cadastro de novos usuários'''
-    
-    usuario_existe = session.exec(
-        select(Usuario).where(Usuario.email == usuario.email)
-    ).first()
 
-    if usuario_existe:
-        raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="E-mail já cadastrado.")
-    
-    novo_user: Usuario = Usuario(
-        nome=usuario.nome,
-        email=usuario.email,
-        senha_hash=password_hash.hash(usuario.senha)
+    return cadastrar_user(
+        dados=usuario,
+        session=session
     )
-
-    session.add(novo_user)
-
-    try:
-        session.commit()
-    except Exception as e:
-        print(e)
-        session.rollback()
-        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Erro ao criar usuário.")
-
-    return novo_user
 
 
 def get_usuario_logado(token: Annotated[str, Depends(token_schema)], session: Session = Depends(get_session)):
