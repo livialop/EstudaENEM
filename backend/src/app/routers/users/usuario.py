@@ -1,18 +1,20 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Response
-from sqlmodel import Session, select
+from fastapi import APIRouter, Depends, status
+from sqlmodel import Session
 
 from database.database import get_session
 from models.model import Usuario
 from ...dto.usuariosDto import UsuarioResponse, UsuarioUpdate
 from app.routers.auth.auth import get_usuario_logado
 
-usuario_router = APIRouter(prefix="/usuario", tags=["Usuario"])
+from ...services.user_service import atualizar_usuario_service, inativar_usuario_service
 
+usuario_router = APIRouter(prefix="/usuarios", tags=["Usuario"])
 
-# TODO: mudar para arquitetura 4 camadas e alterar a checagem de access_token a partir da pasta security.
 
 @usuario_router.get("/me", response_model=UsuarioResponse)
-def get_usuario_atual(usuario: Usuario = Depends(get_usuario_logado)):
+def get_usuario_atual(
+	usuario: Usuario = Depends(get_usuario_logado)
+) -> Usuario:
 	"""Retorna os dados do usuário autenticado"""
 	return usuario
 
@@ -24,49 +26,24 @@ def atualizar_usuario(
 	usuario: Usuario = Depends(get_usuario_logado),
 ):
 	"""Atualiza informações do usuário autenticado. Não permite alterar o email"""
-	if dados.email and dados.email != usuario.email:
-		raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Não é permitido alterar o email.")
-
-	updated = False
-	if dados.nome is not None:
-		usuario.nome = dados.nome
-		updated = True
-
-	if updated:
-		try:
-			session.add(usuario)
-			session.commit()
-			session.refresh(usuario)
-		except Exception:
-			session.rollback()
-			raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Erro ao atualizar usuário.")
-
-	return usuario
+	return atualizar_usuario_service(
+		dados=dados,
+		usuario=usuario,
+		session=session
+	)	
 
 
-@usuario_router.delete("/{email}", status_code=status.HTTP_204_NO_CONTENT)
-def deletar_usuario(
+@usuario_router.patch("/inativar/{email}", status_code=status.HTTP_204_NO_CONTENT)
+def inativar_usuario(
 	email: str,
 	session: Session = Depends(get_session),
 	usuario_logado: Usuario = Depends(get_usuario_logado),
 ):
-	"""Deleta o usuário pelo email"""
-	
-    # so admin e o user podem deletar
-	if usuario_logado.papel != "admin" and usuario_logado.email != email:
-		raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Permissão negada para deletar este usuário.")
 
-
-	usuario = session.scalar(select(Usuario).where(Usuario.email == email))
-	if not usuario:
-		raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado.")
-
-	try:
-		session.delete(usuario)
-		session.commit()
-	except Exception:
-		session.rollback()
-		raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Erro ao deletar usuário.")
-
-	return Response(status_code=status.HTTP_204_NO_CONTENT)
-
+	#TODO: depois que inativa, o usuario deve se deslogar automaticamente e nao deve conseguir logar mais
+	"""Inativa o usuário pelo email"""
+	inativar_usuario_service(
+		email=email,
+		usuario=usuario_logado,
+		session=session
+	)

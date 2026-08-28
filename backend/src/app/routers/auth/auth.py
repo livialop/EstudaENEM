@@ -58,8 +58,8 @@ def login_usuario(
     )
 
     return {
-        "message": "Login realizado com sucesso!",
-        "usuario": usuario
+        "access_token": access_token,
+        "token_type": "bearer"
     }
 
 

@@ -35,4 +35,15 @@ def criar_user(
     session.refresh(usuario)
 
     return usuario
-    
+
+
+def atualizar(
+        usuario: Usuario,
+        session: Session = Depends(get_session)
+) -> Usuario:
+
+    session.add(usuario)
+    session.commit()
+    session.refresh(usuario)
+
+    return usuario
