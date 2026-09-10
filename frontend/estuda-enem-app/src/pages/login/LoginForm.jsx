@@ -23,7 +23,7 @@ export default function LoginForm() {
       const dados = new URLSearchParams();
       dados.append("username", email)
       dados.append("password", senha)
-      
+      // TODO: trocar pra axios
       const response = await fetch("http://localhost:8080/auth/login",
         {
           method: "POST",

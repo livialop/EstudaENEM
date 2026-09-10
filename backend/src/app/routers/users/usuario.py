@@ -1,12 +1,12 @@
+from ...services.user_service import atualizar_usuario_service, inativar_usuario_service
+from ...dto.usuariosDto import UsuarioResponse, UsuarioUpdate
+from app.routers.auth.auth import get_usuario_logado
+from database.database import get_session
+from models.model import Usuario
+
 from fastapi import APIRouter, Depends, status
 from sqlmodel import Session
 
-from database.database import get_session
-from models.model import Usuario
-from ...dto.usuariosDto import UsuarioResponse, UsuarioUpdate
-from app.routers.auth.auth import get_usuario_logado
-
-from ...services.user_service import atualizar_usuario_service, inativar_usuario_service
 
 usuario_router = APIRouter(prefix="/usuarios", tags=["Usuario"])
 

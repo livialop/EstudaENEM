@@ -1,5 +1,5 @@
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
-from fastapi import APIRouter, Depends, Response
+from fastapi import APIRouter, Depends, Response, Cookie
 
 from ...dto.authDto import UsuarioCreate, LoginResponse
 from database.database import get_session
@@ -62,8 +62,6 @@ def login_usuario(
         "token_type": "bearer"
     }
 
-
-
 def get_usuario_logado(
         token: Annotated[str, Depends(token_schema)], 
         session: Session = Depends(get_session)
@@ -72,3 +70,21 @@ def get_usuario_logado(
         token=token, 
         session=session
     )    
+
+
+# @auth_router.post("/logout")
+# def logout_usuario(
+
+# )
+
+# def get_usuario_logado(
+#         access_token: str | None = Cookie(default=None, alias="access_token"), 
+#         session: Session = Depends(get_session)
+# ):
+#     if not access_token:
+#         raise
+    
+#     return pegar_user_autenticado(
+#         token=token, 
+#         session=session
+#     )    
