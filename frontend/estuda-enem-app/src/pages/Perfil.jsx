@@ -1,4 +1,4 @@
-import "../Perfil.css";
+import "../styles/Perfil.css";
 import { useRef, useState } from "react";
 import AcertosChart from "./areausuario/AcertosChart";
 import EditInfoModal from "./areausuario/EditInfoModal";

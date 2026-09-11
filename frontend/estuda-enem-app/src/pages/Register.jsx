@@ -1,5 +1,5 @@
 import React from "react";
-import "../Register.css";
+import "../styles/Register.css";
 
 import RegisterNavbar from "./register/RegisterNavbar";
 import RegisterLeft from "./register/RegisterLeft";

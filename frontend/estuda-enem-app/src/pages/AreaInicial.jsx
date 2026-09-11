@@ -6,7 +6,7 @@ import WelcomeBanner from "./areainicial/WelcomeBanner";
 import QuickActions from "./areainicial/QuickActions";
 import PerformanceCard from "./areainicial/PerformanceCard";
 import JourneySteps from "./areainicial/JourneySteps";
-import "../AreaInicial.css";
+import "../styles/AreaInicial.css";
 
 export default function Dashboard() {
   return (
