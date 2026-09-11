@@ -3,8 +3,20 @@ import {
   Bell,
   ChevronDown,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../areausuario/AuthContext";
 
 export default function TopBar() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    try {
+      logout();
+    } finally {
+      navigate("/", { replace: true });
+    }
+  }
   return (
     <header className="dash-navbar">
       <div className="dash-navbar__container">
@@ -32,6 +44,10 @@ export default function TopBar() {
           <button className="dash-user-btn">
             Olá, Fulano
             <ChevronDown size={16} />
+          </button>
+
+          <button className="dash-logout" onClick={handleLogout} aria-label="Sair">
+            Sair
           </button>
 
         </div>

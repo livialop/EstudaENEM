@@ -1,6 +1,7 @@
 import {Mail, Lock } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../areausuario/AuthContext";
 
 export default function LoginForm() {
 
@@ -11,6 +12,8 @@ export default function LoginForm() {
   const [erro, setErro] = useState("");
 
   const navigate = useNavigate()
+  const location = useLocation();
+  const { login } = useAuth();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -41,13 +44,26 @@ export default function LoginForm() {
           return;
         }
 
+        // tenta inferir usuário e token do retorno do backend
+        const token = data.token || data.access_token || data.accessToken || data.jwt || null;
+        const user = data.user || data.usuario || (data.nome ? { nome: data.nome, email } : { email });
+
+        // atualiza contexto de autenticação
+        try {
+          login(user, token);
+        } catch (e) {
+          console.warn("Falha ao armazenar credenciais locais", e);
+        }
+
         setMensagem("Login realizado com sucesso!");
 
         // campos limpos
         setEmail("");
         setSenha("");
 
-        navigate("/"); // TODO: ALTERAR ISSO DEPOIS PARA ÁREA INICIAL (PAG N EXISTE AINDA)
+        // redireciona para a rota solicitada ou área inicial
+        const from = location.state?.from?.pathname;
+        navigate(from || "/areainicial", { replace: true });
 
     } catch (error) {
       setErro("Erro ao fazer login.");
