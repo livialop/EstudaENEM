@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Perfil from "./pages/Perfil";
 import Simulado from "./pages/Simulado";
+import Equipe from "./pages/Equipe";
 import AreaInicial from "./pages/AreaInicial";
 import { AuthProvider } from "./pages/areausuario/AuthContext";
 import ProtectedRoute from "./pages/areausuario/ProtectedRoute";
@@ -19,7 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/cadastro" element={<Register />} />
-          <Route path="/sobre" element={<Homepage />} />
+          <Route path="/equipe" element={<Equipe />} />
 
           {/* Protected routes grouped under ProtectedRoute */}
           <Route element={<ProtectedRoute />}>

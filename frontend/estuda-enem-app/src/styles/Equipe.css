@@ -1,0 +1,248 @@
+/* ===== Layout geral ===== */
+.equipe-layout {
+  min-height: 100vh;
+  background-color: #eef4ff;
+}
+
+.equipe-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ===== Navbar ===== */
+.equipe-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.equipe-navbar-inner {
+  max-width: 1120px;
+  height: 56px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.equipe-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.equipe-logo span {
+  color: #2563eb;
+}
+
+.equipe-navbar-acoes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.equipe-btn {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.equipe-btn-outline {
+  border: 1px solid #3b82f6;
+  color: #2563eb;
+  background-color: transparent;
+}
+
+.equipe-btn-outline:hover {
+  background-color: #eff6ff;
+}
+
+.equipe-btn-primary {
+  border: 1px solid #2563eb;
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.equipe-btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.equipe-btn:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* ===== Hero ===== */
+.equipe-hero-titulo {
+  margin: 0;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ===== Integrantes ===== */
+.equipe-integrantes {
+  margin-top: 32px;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #dce8fd;
+}
+
+.equipe-integrantes-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.integrante-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.integrante-avatar {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #dbeafe;
+  box-shadow: 0 0 0 4px #eff6ff;
+  overflow: hidden;
+}
+
+.integrante-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.integrante-avatar svg {
+  width: 40px;
+  height: 40px;
+  fill: #3b82f6;
+}
+
+.integrante-nome {
+  margin: 20px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.integrante-funcao {
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2563eb;
+}
+
+.integrante-descricao {
+  margin: 12px 0 0;
+  max-width: 24ch;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+/* ===== Sobre o projeto ===== */
+.sobre-projeto {
+  margin-top: 32px;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.sobre-projeto-titulo {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.sobre-projeto-lista {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sobre-projeto-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #f7faff;
+}
+
+.sobre-projeto-icone {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #eff6ff;
+  font-size: 30px;
+}
+
+.sobre-projeto-texto h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.sobre-projeto-texto p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+  .equipe-integrantes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .equipe-integrantes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .equipe-hero-titulo {
+    font-size: 22px;
+  }
+
+  .sobre-projeto-item {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
