@@ -1,0 +1,541 @@
+/* ===== Tokens ===== */
+:root {
+  --sim-azul: #2563eb;
+  --sim-azul-escuro: #1d4ed8;
+  --sim-azul-claro: #eaf1ff;
+  --sim-fundo: #f5f8ff;
+  --sim-texto: #0f172a;
+  --sim-texto-suave: #64748b;
+  --sim-borda: #e4e9f2;
+  --sim-raio: 12px;
+}
+
+/* ===== Layout ===== */
+.simulado-layout {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  color: var(--sim-texto);
+}
+
+.simulado-content {
+  flex: 1;
+  background: var(--sim-fundo);
+  padding: 24px 28px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+}
+
+/* ===== Navbar ===== */
+.sim-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 28px;
+  background: #fff;
+  border-bottom: 1px solid var(--sim-borda);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.sim-navbar__logo {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--sim-texto);
+  text-decoration: none;
+}
+
+.sim-navbar__logo span {
+  color: var(--sim-azul);
+}
+
+.sim-navbar__links {
+  display: flex;
+  gap: 34px;
+}
+
+.sim-navbar__links a {
+  color: #334155;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 0;
+}
+
+.sim-navbar__links a:hover {
+  color: var(--sim-azul);
+}
+
+.sim-navbar__user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sim-navbar__bell,
+.sim-navbar__perfil {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--sim-azul);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.sim-navbar__avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--sim-azul-claro);
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+}
+
+/* ===== Sidebar ===== */
+.sim-sidebar {
+  width: 190px;
+  flex-shrink: 0;
+  background: #fff;
+  min-height: calc(100vh - 57px);
+  padding: 22px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-right: 1px solid var(--sim-borda);
+}
+
+.sim-sidebar__menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sim-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--sim-borda);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  text-decoration: none;
+}
+
+.sim-sidebar__item:hover {
+  border-color: var(--sim-azul);
+  color: var(--sim-azul);
+}
+
+.sim-sidebar__item--ativo {
+  background: var(--sim-azul);
+  border-color: var(--sim-azul);
+  color: #fff;
+}
+
+.sim-sidebar__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--sim-azul);
+  color: #fff;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  margin: 180px 0 auto;
+}
+
+.sim-sidebar__sair {
+  width: 100%;
+  margin-top: auto;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid var(--sim-borda);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #334155;
+  cursor: pointer;
+}
+
+/* ===== Botões ===== */
+.sim-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sim-btn--primario {
+  background: var(--sim-azul);
+  color: #fff;
+}
+
+.sim-btn--primario:hover {
+  background: var(--sim-azul-escuro);
+}
+
+.sim-btn--secundario {
+  background: #fff;
+  color: var(--sim-azul);
+  border: 1px solid var(--sim-azul);
+}
+
+.sim-btn--bloco {
+  width: 100%;
+}
+
+.sim-link {
+  background: none;
+  border: 0;
+  color: var(--sim-azul);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== Card base ===== */
+.sim-card {
+  background: #fff;
+  border: 1px solid var(--sim-borda);
+  border-radius: var(--sim-raio);
+  padding: 20px;
+}
+
+.sim-secao__cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.sim-secao__titulo {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sim-secao__subtitulo {
+  font-size: 12px;
+  color: var(--sim-texto-suave);
+  margin: 4px 0 0;
+}
+
+/* ===== Hero ===== */
+.sim-hero {
+  background: var(--sim-azul-claro);
+  border-radius: 16px;
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.sim-hero__titulo {
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+.sim-hero__titulo span {
+  color: var(--sim-azul);
+}
+
+.sim-hero__subtitulo {
+  color: var(--sim-azul);
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.sim-hero__descricao {
+  color: #475569;
+  font-size: 13px;
+  max-width: 44ch;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.sim-hero__imagem {
+  width: 320px;
+  max-width: 45%;
+  height: auto;
+}
+
+/* ===== Resumo ===== */
+.sim-resumo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.sim-resumo__card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+}
+
+.sim-resumo__icone {
+  font-size: 26px;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--sim-azul-claro);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.sim-resumo__titulo {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sim-resumo__valor {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--sim-azul);
+  margin: 2px 0;
+}
+
+.sim-resumo__nota {
+  font-size: 11px;
+  color: var(--sim-texto-suave);
+  margin: 0;
+}
+
+/* ===== Simulados disponíveis ===== */
+.sim-disponiveis__grade {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.sim-card-simulado {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+}
+
+.sim-card-simulado__icone {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+
+.sim-card-simulado__icone--azul { background: #e0ecff; }
+.sim-card-simulado__icone--roxo { background: #f0e6ff; }
+.sim-card-simulado__icone--verde { background: #e2f7e8; }
+.sim-card-simulado__icone--laranja { background: #fff0dd; }
+
+.sim-card-simulado__titulo {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sim-card-simulado__info {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--sim-texto-suave);
+}
+
+.sim-card-simulado__info li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===== Colunas ===== */
+.simulado-colunas {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* ===== Tabela do histórico ===== */
+.sim-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+
+.sim-tabela th {
+  text-align: left;
+  color: var(--sim-texto-suave);
+  font-weight: 600;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--sim-borda);
+}
+
+.sim-tabela td {
+  padding: 9px 6px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.sim-tabela tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.sim-nota {
+  font-weight: 700;
+}
+
+.sim-nota--alta { color: #16a34a; }
+.sim-nota--media { color: #2563eb; }
+.sim-nota--baixa { color: #ea580c; }
+
+/* ===== Recomendação ===== */
+.sim-recomendacao {
+  position: relative;
+  background: var(--sim-azul-claro);
+  border-color: #d7e4ff;
+  overflow: hidden;
+}
+
+.sim-recomendacao__titulo {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sim-recomendacao__texto,
+.sim-recomendacao__rotulo {
+  font-size: 12px;
+  color: #475569;
+  margin: 0 0 10px;
+  max-width: 28ch;
+}
+
+.sim-recomendacao__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 12px;
+  color: #334155;
+}
+
+.sim-recomendacao__lista li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sim-recomendacao__imagem {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 120px;
+  pointer-events: none;
+}
+
+/* ===== Ranking ===== */
+.sim-ranking {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 28px;
+}
+
+.sim-ranking__titulo {
+  font-size: 19px;
+  font-weight: 800;
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sim-ranking__posicao {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sim-ranking__medalha {
+  font-size: 34px;
+}
+
+.sim-ranking__rotulo {
+  font-size: 12px;
+  color: var(--sim-texto-suave);
+  margin: 0;
+}
+
+.sim-ranking__numero {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 2px 0 0;
+}
+
+.sim-ranking__texto {
+  font-size: 13px;
+  color: #475569;
+  margin: 16px 0;
+}
+
+.sim-ranking__imagem {
+  width: 220px;
+  max-width: 40%;
+  height: auto;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 1100px) {
+  .sim-disponiveis__grade { grid-template-columns: repeat(2, 1fr); }
+  .simulado-colunas { grid-template-columns: 1fr; }
+  .sim-recomendacao__imagem { display: none; }
+}
+
+@media (max-width: 760px) {
+  .sim-navbar__links { display: none; }
+  .sim-sidebar { display: none; }
+  .simulado-content { padding: 16px; }
+  .sim-hero { flex-direction: column; text-align: left; }
+  .sim-hero__imagem { max-width: 80%; }
+  .sim-resumo { grid-template-columns: 1fr; }
+  .sim-disponiveis__grade { grid-template-columns: 1fr; }
+  .sim-ranking { flex-direction: column; }
+  .sim-ranking__imagem { max-width: 70%; }
+}

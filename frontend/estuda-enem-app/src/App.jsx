@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Perfil from "./pages/Perfil";
+import Simulado from "./pages/Simulado";
 import AreaInicial from "./pages/AreaInicial";
 import { AuthProvider } from "./pages/areausuario/AuthContext";
 import ProtectedRoute from "./pages/areausuario/ProtectedRoute";
@@ -24,6 +25,8 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/areausuario" element={<Perfil />} />
             <Route path="/areainicial" element={<AreaInicial />} />
+            <Route path="/simulado" element={<Simulado />} />
+
           </Route>
         </Routes>
       </BrowserRouter>
