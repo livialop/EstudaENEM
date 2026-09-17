@@ -1,5 +1,7 @@
 # Requisitos EstudaENEM
 
+Integrantes: Ezaelly Clara Lopes Feitosa de Morais, Lívia Lopes Nóbrega e Raissa Kelly Brito de Araújo.
+
 # Requisitos Funcionais
 
 ### RF01 — Apresentar a Homepage

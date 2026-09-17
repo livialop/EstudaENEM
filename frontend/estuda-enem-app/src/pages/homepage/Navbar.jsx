@@ -20,7 +20,7 @@ export default function Navbar() {
           <a href="#inicio">Simulados</a>
           <a href="#recursos">Questões</a>
           <a href="#sobre">Conteúdos</a>
-          <a href="#contato">Sobre nós</a>
+          <a onClick={() => navigate("/sobrenos")}>Sobre nós</a>
         </nav>
 
         <div className="navbar__actions">

@@ -19,8 +19,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/cadastro" element={<Register />} />
-          <Route path="/equipe" element={<Equipe />} />
+          <Route path="/sobrenos" element={<Equipe />} />
 
           {/* Protected routes grouped under ProtectedRoute */}
           <Route element={<ProtectedRoute />}>
