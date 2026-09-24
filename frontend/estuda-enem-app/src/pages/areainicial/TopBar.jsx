@@ -34,17 +34,10 @@ export default function TopBar() {
 
         <div className="dash-navbar__actions">
 
-          <button
-            className="dash-icon-btn"
-            aria-label="Notificações"
-          >
-            <Bell size={18} />
-          </button>
-
-          <button className="dash-user-btn">
+          <a href="/areausuario" className="dash-user-btn">
             Olá, Fulano
             <ChevronDown size={16} />
-          </button>
+          </a>
 
           <button className="dash-logout" onClick={handleLogout} aria-label="Sair">
             Sair

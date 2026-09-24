@@ -1,4 +1,4 @@
-/* =============================
+       /* =============================
    RESET & BASE
    ============================= */
 *,
@@ -84,81 +84,75 @@ ul {
 /* =============================
    NAVBAR
    ============================= */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+.topbar {
+height: 72px;
+background: #fff;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 60px;
+box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+position: relative;
+z-index: 10;
 }
 
-.navbar__container {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  gap: 32px;
+.logo {
+font-size: 1.3rem;
+font-weight: 800;
+color: var(--text-dark);
+letter-spacing: -0.5px;
+flex-shrink: 0;
 }
 
-.navbar__logo {
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--text-dark);
-  letter-spacing: -0.5px;
-  flex-shrink: 0;
+.logo span {
+color: var(--blue);
 }
 
-.navbar__logo span {
-  color: var(--blue);
+.center-link {
+flex: 1;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
-.navbar__links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  flex: 1;
+.center-link a {
+font-size: 0.92rem;
+font-weight: 500;
+color: var(--text-muted);
+transition: color 0.2s;
 }
 
-.navbar__links a {
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  transition: color 0.2s;
+.center-link a:hover {
+color: var(--blue);
 }
 
-.navbar__links a:hover {
-  color: var(--blue);
+.login-area {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-shrink: 0;
 }
 
-.navbar__actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
+.login-area span {
+color: var(--text-muted);
+font-size: 13px;
 }
 
-.navbar__toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  margin-left: auto;
+.login-area button {
+width: 90px;
+height: 38px;
+border-radius: 7px;
+border: 1px solid var(--blue);
+background: white;
+color: var(--blue);
+font-weight: 600;
+cursor: pointer;
+transition: .2s;
 }
 
-.navbar__toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--text-dark);
-  border-radius: 2px;
-  transition: all 0.3s;
+.login-area button:hover {
+background: var(--blue);
+color: white;
 }
 
 /* =============================
