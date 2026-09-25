@@ -4,6 +4,7 @@ import AcertosChart from "./areausuario/AcertosChart";
 import EditInfoModal from "./areausuario/EditInfoModal";
 import ProgressDonut from "./areausuario/ProgressDonut";
 import { useAuth } from "./areausuario/AuthContext";
+import TopBar from "./areainicial/TopBar";
 
 export default function Perfil() {
   const { user, updateUser } = useAuth();
@@ -35,7 +36,13 @@ export default function Perfil() {
   }
 
   return (
+
     <main className="perfil-page">
+
+      <div className="navbar">
+        <TopBar />
+      </div>
+
       <h1>Meu perfil</h1>
 
       <section className="perfil-grid">

@@ -25,7 +25,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/areausuario" element={<Perfil />} />
             <Route path="/areainicial" element={<AreaInicial />} />
-            <Route path="/simulado" element={<Simulado />} />
+            <Route path="/simulados" element={<Simulado />} />
 
           </Route>
         </Routes>

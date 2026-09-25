@@ -1,15 +1,15 @@
-import React from "react";
 import "../styles/Equipe.css";
 
-import EquipeNavbar from "./equipe/EquipeNavbar";
 import EquipeHero from "./equipe/EquipeHero";
 import EquipeIntegrantes from "./equipe/EquipeIntegrantes";
 import SobreProjeto from "./equipe/SobreProjeto";
+import Navbar from "./homepage/Navbar";
+import Footer from "./homepage/Footer";
 
 export default function Equipe() {
   return (
     <>
-      <EquipeNavbar />
+      <Navbar />
 
       <div className="equipe-layout">
         <main className="equipe-content">
@@ -18,7 +18,11 @@ export default function Equipe() {
           <EquipeIntegrantes />
 
           <SobreProjeto />
+
         </main>
+        
+        <Footer />
+      
       </div>
     </>
   );

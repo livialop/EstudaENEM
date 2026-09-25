@@ -1,5 +1,3 @@
-// src/pages/Dashboard.jsx
-
 import TopBar from "./areainicial/TopBar";
 import Sidebar from "./areainicial/Sidebar";
 import WelcomeBanner from "./areainicial/WelcomeBanner";

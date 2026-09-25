@@ -31,55 +31,43 @@
      TOP BAR
   ========================= */
   
-  .dash-navbar {
+  .topbar {
+    height: 72px;
     background: #fff;
-    border-bottom: 1px solid var(--dash-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    position: relative;
+    z-index: 10;
 
   }
   
-  .dash-navbar__container {
-    height:72px;
-    background:#fff;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 60px;
-
-    box-shadow:0 1px 8px rgba(0,0,0,.04);
-
-    position:relative;
-    z-index:10;
-  }
-  
-  .dash-navbar__logo {
+  .logo {
     font-size: 1.3rem;
     font-weight: 800;
     color: var(--text-dark);
     letter-spacing: -0.5px;
     flex-shrink: 0;
   }
+
   
-  .dash-navbar__logo span {
-    color:#2b6cff;
-  }
-  
-  .dash-navbar__links {
+  .center-link {
     display: flex;
     gap: 28px;
     flex: 1;
     justify-content: center;
   }
   
-  .dash-navbar__links a {
+  .center-link a {
     text-decoration: none;
     color: var(--dash-ink);
     font-size: 14px;
     font-weight: 500;
   }
   
-  .dash-navbar__links a:hover {
+  .center-link a:hover {
     color: var(--dash-blue-600);
   }
   

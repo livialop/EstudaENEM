@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/App.css";
 import Navbar from "./homepage/Navbar";
 import Hero from "./homepage/Hero";

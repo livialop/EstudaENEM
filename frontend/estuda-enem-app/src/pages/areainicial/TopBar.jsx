@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Bell,
   ChevronDown,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +9,8 @@ export default function TopBar() {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
+  // TODO: Alterar o logout para a sidebar da area inicial
+
   function handleLogout() {
     try {
       logout();
@@ -18,34 +19,36 @@ export default function TopBar() {
     }
   }
   return (
-    <header className="dash-navbar">
-      <div className="dash-navbar__container">
-
-        <a className="dash-navbar__logo">
+    <header className="topbar">
+      
+      <div className="logo">
+        <a onClick={() => navigate("/")}>
           Estuda<span>ENEM</span>
         </a>
+      </div>
 
-        <nav className="dash-navbar__links">
-          <a href="#">Simulados</a>
+      <div className="center-link">
+        <nav className="center-link">
+          <a onClick={() => navigate("/simulados")}>Simulados</a>
           <a href="#">Questões</a>
           <a href="#">Conteúdos</a>
-          <a href="#">Sobre nós</a>
+          <a onClick={() => navigate("/sobrenos")}>Sobre nós</a>
         </nav>
-
-        <div className="dash-navbar__actions">
-
-          <a href="/areausuario" className="dash-user-btn">
-            Olá, Fulano
-            <ChevronDown size={16} />
-          </a>
-
-          <button className="dash-logout" onClick={handleLogout} aria-label="Sair">
-            Sair
-          </button>
-
-        </div>
-
       </div>
+    
+      <div className="dash-navbar__actions">
+        <a href="/areausuario" className="dash-user-btn">
+          Olá, Fulano
+          <ChevronDown size={16} />
+        </a>
+      </div>
+
+      <button className="dash-logout" onClick={handleLogout} aria-label="Sair">
+        Sair
+      </button>
+
+
+      
     </header>
   );
 }

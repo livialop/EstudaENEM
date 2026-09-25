@@ -4,21 +4,21 @@ import IntegranteCard from "./IntegranteCard";
 const INTEGRANTES = [
   {
     id: 1,
-    nome: "Nome",
+    nome: "Raissa Kelly",
     funcao: "Desenvolvedora Front-end",
     descricao: "Responsável pela interface do usuário e experiência visual da plataforma.",
     foto: "",
   },
   {
     id: 2,
-    nome: "Nome",
+    nome: "Lívia Lopes",
     funcao: "Desenvolvedora Back-end",
     descricao: "Cuida da lógica, dados e integração para tudo funcionar por trás dos bastidores.",
     foto: "",
   },
   {
     id: 3,
-    nome: "Nome",
+    nome: "Ezaelly Clara",
     funcao: "Designer & UX/UI",
     descricao: "Responsável pelo designer, usabilidade e experiência com o usuário.",
     foto: "",
