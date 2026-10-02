@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./areausuario/AuthContext";
 import TopBar from "./areainicial/TopBar";
 import Sidebar from "./areainicial/Sidebar";
 import WelcomeBanner from "./areainicial/WelcomeBanner";
@@ -7,12 +9,20 @@ import JourneySteps from "./areainicial/JourneySteps";
 import "../styles/AreaInicial.css";
 
 export default function Dashboard() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    logout();
+    navigate("/", { replace: true });
+  }
+
   return (
     <div className="dash-app">
       <TopBar />
 
       <div className="dash-body">
-        <Sidebar />
+        <Sidebar onSair={handleLogout} />
 
         <main className="dash-main">
           <div className="dash-greeting">

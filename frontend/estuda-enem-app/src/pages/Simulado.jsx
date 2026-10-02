@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/Simulado.css";
 
-import SimuladoNavbar from "./simulado/SimuladoNavbar";
-import SimuladoSidebar from "./simulado/SimuladoSidebar";
+import TopBar from "./areainicial/TopBar";
+import Sidebar from "./areainicial/Sidebar";
 import SimuladoHero from "./simulado/SimuladoHero";
 import SimuladoResumo from "./simulado/SimuladoResumo";
 import SimuladosDisponiveis from "./simulado/SimuladosDisponiveis";
@@ -25,10 +25,10 @@ export default function Simulado() {
 
   return (
     <>
-      <SimuladoNavbar nome={user?.nome ?? "Fulano"} />
+      <TopBar nome={user?.nome ?? "Fulano"} />
 
       <div className="simulado-layout">
-        <SimuladoSidebar ativo="simulado" onSair={logout} />
+        <Sidebar activeItem="Simulado" onSair={logout} />
 
         <main className="simulado-content">
           <SimuladoHero />

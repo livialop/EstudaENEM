@@ -147,6 +147,23 @@
     color: #fff;
     border-color: var(--dash-blue-600);
   }
+
+  .dash-sidebar__sair {
+    width: 100%;
+    margin-top: auto;
+    padding: 9px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--dash-border);
+    background: #fff;
+    color: var(--dash-ink);
+    font-weight: 600;
+    font-size: 13.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
   
   .dash-main {
     flex: 1;
