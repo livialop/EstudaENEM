@@ -2,7 +2,7 @@ import React from "react";
 import {
   ChevronDown,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../areausuario/AuthContext";
 
 export default function TopBar({ nome = "Fulano" }) {
@@ -27,7 +27,7 @@ export default function TopBar({ nome = "Fulano" }) {
 
       <div className="center-link">
         <nav className="center-link">
-          <a onClick={() => navigate("/simulados")}>Simulados</a>
+          <Link to="/simulados">Simulados</Link>
           <a href="#">Questões</a>
           <a onClick={() => navigate("/sobrenos")}>Sobre nós</a>
         </nav>
