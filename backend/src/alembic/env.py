@@ -2,13 +2,35 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
+from sqlalchemy.engine import URL
 
 from sqlmodel import SQLModel
 from models.model import *
 from alembic import context
 
+# imports p/ o env
+import os
+from dotenv import load_dotenv
+
 # alembic revision --autogenerate
 # alembic upgrade head
+
+load_dotenv()
+
+DB_USERNAME=os.getenv("DB_USERNAME")
+DB_PASSWORD=os.getenv("DB_PASSWORD")
+DB_HOST=os.getenv("DB_HOST")
+DB_PORT=os.getenv("DB_PORT")
+DB_NAME=os.getenv("DB_NAME")
+
+database_url = URL.create(
+    drivername="mysql+pymysql",
+    username=DB_USERNAME,
+    password=DB_PASSWORD,
+    host=DB_HOST,
+    port=DB_PORT,
+    database=DB_NAME
+)
 
 
 # this is the Alembic Config object, which provides
