@@ -17,25 +17,23 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DB_USERNAME=os.getenv("DB_USERNAME")
-DB_PASSWORD=os.getenv("DB_PASSWORD")
-DB_HOST=os.getenv("DB_HOST")
-DB_PORT=os.getenv("DB_PORT")
-DB_NAME=os.getenv("DB_NAME")
-
-database_url = URL.create(
-    drivername="mysql+pymysql",
-    username=DB_USERNAME,
-    password=DB_PASSWORD,
-    host=DB_HOST,
-    port=DB_PORT,
-    database=DB_NAME
-)
-
-
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+
+url_banco = URL.create(
+    drivername="mysql+pymysql",
+    username=os.getenv("DB_USERNAME"),
+    password=os.getenv("DB_PASSWORD"),
+    host=os.getenv("DB_HOST"),
+    port=int(os.getenv("DB_PORT")),
+    database=os.getenv("DB_NAME"),
+)
+
+config.set_main_option(
+    "sqlalchemy.url",
+    url_banco.render_as_string(hide_password=False).replace("%", "%%"), # tava dando erro de interpolação quando a senha tinha %
+)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
