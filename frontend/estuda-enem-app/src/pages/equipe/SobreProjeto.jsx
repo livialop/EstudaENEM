@@ -3,14 +3,14 @@ import React from "react";
 const BLOCOS = [
   {
     id: "problema",
-    icone: "🎯",
+    icone: "",
     titulo: "O problema",
     texto:
       "O EstudaENEM foi desenvolvido para oferecer praticidade e facilidade aos estudantes na resolução de questões do ENEM. A plataforma reúne, de forma totalmente gratuita, provas e questões do exame em um único banco de dados, proporcionando uma experiência organizada e intuitiva. Dessa forma, o estudante pode praticar seus conhecimentos sem se perder na resolução das questões, tornando sua preparação mais eficiente e produtiva.",
   },
   {
     id: "motivacao",
-    icone: "🏆",
+    icone: "",
     titulo: "A motivação",
     texto:
       "O EstudaENEM surgiu com o objetivo de facilitar o acesso dos estudantes às questões e provas do ENEM de forma gratuita, organizada e intuitiva. A plataforma reúne esses conteúdos em um único banco de dados, permitindo que o estudante pratique seus conhecimentos de maneira mais simples e eficiente, contribuindo para uma preparação mais organizada e produtiva para o exame.",
