@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/Register.css";
 
 import RegisterNavbar from "./register/RegisterNavbar";
-import RegisterLeft from "./register/RegisterLeft";
 import RegisterForm from "./register/RegisterForm";
 import RegisterRight from "./register/RegisterRight";
 import { useAuth } from "./areausuario/AuthContext";
@@ -24,7 +23,6 @@ export default function Register() {
       <RegisterNavbar />
 
       <main className="register-content">
-        <RegisterLeft />
 
         <RegisterForm />
 

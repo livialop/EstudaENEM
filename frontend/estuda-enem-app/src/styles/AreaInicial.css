@@ -104,19 +104,20 @@
   
   .dash-body {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
+    min-height: calc(100vh - 72px);
   }
   
   .dash-sidebar {
     width: 300px;
     flex-shrink: 0;
-  
+    background: #fff;
+    border-right: 1px solid var(--dash-border);
     padding: 24px 16px;
-  
     display: flex;
     flex-direction: column;
-  
     gap: 12px;
+    min-height: calc(100vh - 72px);
   }
   
   .dash-sidebar__item {
@@ -148,7 +149,7 @@
 
   .dash-sidebar__sair {
     width: 100%;
-    margin-top: auto;
+    margin-top: 0;
     padding: 9px 14px;
     border-radius: 10px;
     border: 1px solid var(--dash-border);

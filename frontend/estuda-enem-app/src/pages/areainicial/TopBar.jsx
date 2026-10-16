@@ -28,16 +28,16 @@ export default function TopBar({ nome = "Fulano" }) {
       <div className="center-link">
         <nav className="center-link">
           <Link to="/simulados">Simulados</Link>
-          <a href="#">Questões</a>
-          <a onClick={() => navigate("/sobrenos")}>Sobre nós</a>
+          <Link to="/questoes">Questões</Link>
+          <Link to="/sobrenos">Sobre nós</Link>
         </nav>
       </div>
 
       <div className="dash-navbar__actions">
-        <a href="/areausuario" className="dash-user-btn">
+        <Link to="/areausuario" className="dash-user-btn">
           Olá, {nome}
           <ChevronDown size={16} />
-        </a>
+        </Link>
       </div>
 
       <button className="dash-logout" onClick={handleLogout} aria-label="Sair">

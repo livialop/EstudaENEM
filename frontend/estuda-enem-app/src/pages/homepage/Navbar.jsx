@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -6,13 +6,11 @@ export default function Navbar() {
   return (
     <header className="topbar">
       <div className="logo">
-        <a onClick={() => navigate("/")}>
-          Estuda<span>ENEM</span>
-        </a>
+        <Link to="/">Estuda<span>ENEM</span></Link>
       </div>
 
       <div className="center-link">
-        <a onClick={() => navigate("/sobrenos")}>Sobre nós</a>
+        <Link to="/sobrenos">Sobre nós</Link>
       </div>
 
       <div className="login-area">
