@@ -1,0 +1,232 @@
+/* Usa as variáveis --dash-* e as classes .dash-* / .btn de AreaInicial.css */
+
+.sel-panel {
+  padding: 0;
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- Cabeçalho ---------- */
+.sel-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 32px;
+  background: #fff;
+}
+
+.sel-header__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  background: var(--dash-blue-100);
+  color: var(--dash-blue-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sel-header h1 {
+  font-size: 18px;
+  margin: 0 0 2px;
+}
+
+.sel-header p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--dash-muted);
+}
+
+/* ---------- Corpo ---------- */
+.sel-body {
+  background: #f6f8fd;
+  padding: 24px 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-height: 420px;
+}
+
+.sel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sel-section__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dash-ink);
+}
+
+.sel-section__title svg {
+  color: var(--dash-blue-600);
+}
+
+/* ---------- Select de ano ---------- */
+.sel-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sel-select select {
+  width: 100%;
+  height: 44px;
+  padding: 0 40px;
+  appearance: none;
+  background: #f0f2f7;
+  border: 1px solid var(--dash-border);
+  border-radius: 8px;
+  color: var(--dash-ink);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.sel-select select:focus-visible {
+  outline: 2px solid var(--dash-blue-600);
+  outline-offset: 1px;
+}
+
+.sel-select__icon,
+.sel-select__chevron {
+  position: absolute;
+  color: var(--dash-muted);
+  pointer-events: none;
+}
+
+.sel-select__icon {
+  left: 14px;
+}
+
+.sel-select__chevron {
+  right: 14px;
+}
+
+/* ---------- Cards de área ---------- */
+.sel-areas {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 32px 32px;
+}
+
+.sel-areas > .sel-card {
+  grid-column: span 2;
+}
+
+/* segunda linha: 2 cards mais largos */
+.sel-areas > .sel-card:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+.sel-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(22, 33, 62, 0.08);
+  text-align: left;
+  font-family: inherit;
+  color: var(--dash-ink);
+  cursor: pointer;
+}
+
+.sel-card:hover {
+  border-color: var(--dash-blue-300);
+}
+
+.sel-card:focus-visible {
+  outline: 2px solid var(--dash-blue-600);
+  outline-offset: 2px;
+}
+
+.sel-card--active {
+  border-color: var(--dash-blue-600);
+  background: var(--dash-blue-50);
+}
+
+.sel-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sel-card__icon--blue   { background: #dbe6fb; color: #2f5fe0; }
+.sel-card__icon--green  { background: #cdf3d3; color: #1e9e3a; }
+.sel-card__icon--purple { background: #f1d9fb; color: #a63fd1; }
+.sel-card__icon--orange { background: #fddcbf; color: #e07a1f; }
+.sel-card__icon--yellow { background: #fdf0b3; color: #e0a31f; }
+
+.sel-card__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.sel-card__text strong {
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.sel-card__text small {
+  font-size: 10.5px;
+  color: var(--dash-muted);
+}
+
+.sel-card__arrow {
+  color: var(--dash-muted);
+  flex-shrink: 0;
+}
+
+/* ---------- Botão e erro ---------- */
+.sel-go {
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+  padding: 11px 20px;
+  font-size: 12px;
+}
+
+.sel-go:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.sel-error {
+  margin: 0;
+  font-size: 13px;
+  color: #c0392b;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 860px) {
+  .sel-body {
+    padding: 20px 16px 24px;
+  }
+
+  .sel-areas {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .sel-areas > .sel-card,
+  .sel-areas > .sel-card:nth-child(n + 4) {
+    grid-column: auto;
+  }
+}

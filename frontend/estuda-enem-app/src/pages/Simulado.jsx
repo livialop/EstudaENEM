@@ -7,7 +7,6 @@ import SimuladoHero from "./simulado/SimuladoHero";
 import SimuladoResumo from "./simulado/SimuladoResumo";
 import SimuladosDisponiveis from "./simulado/SimuladosDisponiveis";
 import HistoricoSimulados from "./simulado/HistoricoSimulados";
-import RankingSemanal from "./simulado/RankingSemanal";
 
 import { useAuth } from "./areausuario/AuthContext";
 import { Navigate } from "react-router-dom";
@@ -40,8 +39,6 @@ export default function Simulado() {
           <section className="simulado-colunas">
             <HistoricoSimulados />
           </section>
-
-          <RankingSemanal posicao={23} percentil={15} />
         </main>
       </div>
     </>

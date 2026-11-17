@@ -7,6 +7,7 @@ import Perfil from "./pages/Perfil";
 import Simulado from "./pages/Simulado";
 import Equipe from "./pages/Equipe";
 import AreaInicial from "./pages/AreaInicial";
+import Selecionarquest from "./pages/Selecionarquest";
 import { AuthProvider } from "./pages/areausuario/AuthContext";
 import ProtectedRoute from "./pages/areausuario/ProtectedRoute";
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/areausuario" element={<Perfil />} />
             <Route path="/areainicial" element={<AreaInicial />} />
             <Route path="/simulados" element={<Simulado />} />
+            <Route path="/selecionarquest" element={<Selecionarquest />} />
 
           </Route>
         </Routes>

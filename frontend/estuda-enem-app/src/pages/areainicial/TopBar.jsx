@@ -40,9 +40,6 @@ export default function TopBar({ nome = "Fulano" }) {
         </Link>
       </div>
 
-      <button className="dash-logout" onClick={handleLogout} aria-label="Sair">
-        Sair
-      </button>
     </header>
   );
 }
