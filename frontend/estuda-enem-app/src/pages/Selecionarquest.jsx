@@ -1,4 +1,3 @@
-
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./areausuario/AuthContext";
@@ -28,7 +27,7 @@ export default function Selecionarquest() {
     navigate("/", { replace: true });
   }
 
-  // Recarrega as questões ao trocar o ano (prova_id) para atualizar os totais
+  // Recarrega as questões pelo ID interno da prova escolhida.
   useEffect(() => {
     let cancelado = false;
     setErro("");
@@ -54,12 +53,22 @@ export default function Selecionarquest() {
   }, [questoes]);
 
   function handleIrParaQuestoes() {
-    const area = AREAS.find((a) => a.id === areaId);
-    const params = new URLSearchParams();
-    if (provaId) params.set("prova_id", provaId);
-    if (area?.disciplina) params.set("disciplina", area.disciplina);
+    const prova = ANOS.find((item) => String(item.value) === String(provaId));
+    const area = AREAS.find((item) => item.id === areaId);
 
-    navigate(`/questoes/resolver?${params.toString()}`); // ajuste para a sua rota
+    if (!prova || !area) return;
+
+    const params = new URLSearchParams();
+    params.set("prova_id", String(prova.value));
+    params.set("ano", String(prova.ano));
+
+    if (area.disciplina) {
+      params.set("disciplina", area.disciplina);
+    } else {
+      params.set("disciplina", "todas");
+    }
+
+    navigate(`/questoes/resolver?${params.toString()}`);
   }
 
   return (
@@ -90,7 +99,7 @@ export default function Selecionarquest() {
               )}
 
               <GoToQuestions
-                disabled={!areaId}
+                disabled={!provaId || !areaId}
                 onClick={handleIrParaQuestoes}
               />
             </div>

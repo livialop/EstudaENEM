@@ -9,7 +9,7 @@ import {
 
 const items = [
   { label: "Início", icon: Home, to: "/areainicial" },
-  { label: "Questões", icon: HelpCircle, to: "/questoes" },
+  { label: "Questões", icon: HelpCircle, to: "/selecionarquest" },
   { label: "Simulado", icon: BookOpen, to: "/simulados" },
   { label: "Desempenho", icon: BarChart2, to: "/areausuario" },
 ];

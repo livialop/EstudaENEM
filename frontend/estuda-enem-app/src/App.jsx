@@ -10,6 +10,7 @@ import AreaInicial from "./pages/AreaInicial";
 import Selecionarquest from "./pages/Selecionarquest";
 import { AuthProvider } from "./pages/areausuario/AuthContext";
 import ProtectedRoute from "./pages/areausuario/ProtectedRoute";
+import ResolverQuestoes from "./pages/ResolverQuestoes";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/areainicial" element={<AreaInicial />} />
             <Route path="/simulados" element={<Simulado />} />
             <Route path="/selecionarquest" element={<Selecionarquest />} />
+            <Route path="/questoes/resolver" element={<ResolverQuestoes />} />
 
           </Route>
         </Routes>
