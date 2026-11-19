@@ -17,6 +17,7 @@ import EditInfoModal from "./areausuario/EditInfoModal";
 import ProgressDonut from "./areausuario/ProgressDonut";
 import { useAuth } from "./areausuario/AuthContext";
 import NavBar from "../components/NavBar";
+import JoaoEnemImage from "../assets/Joao_ENEM.png";
 
 const AVATAR_PADRAO = "/images/avatar-padrao.png";
 const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8080";
@@ -240,7 +241,7 @@ export default function Perfil() {
         </section>
 
         <div className="perfil-illustration" aria-hidden="true">
-          <img src={AVATAR_PADRAO} alt="" />
+          <img src={JoaoEnemImage} alt="" />
         </div>
       </div>
 

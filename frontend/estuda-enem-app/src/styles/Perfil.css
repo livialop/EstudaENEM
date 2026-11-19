@@ -232,21 +232,15 @@ body {
 ========================================= */
 
 .progress-card {
-  width: 790px;
-  height: 368px;
-  margin-top: 57px;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 25px 32px 30px;
-  box-shadow:
-    0 5px 20px rgba(40, 110, 210, 0.12);
   position: relative;
   z-index: 3;
+  width: 790px;
+  min-height: 368px;
+  margin-top: 28px;
+  margin-left: -55px;
+  padding: 24px 28px 26px;
+  border-radius: 18px;
 }
-
-/* =========================================
-   TOPO DO PAINEL
-========================================= */
 
 .progress-top {
   display: grid;
@@ -469,10 +463,11 @@ body {
 
 .user-illustration {
   position: absolute;
-  right: -5px;
-  bottom: -5px;
-  width: 570px;
-  max-width: 42vw;
+  right: 8px;
+  top: 170px;
+  bottom: auto;
+  width: 850px;
+  max-width: 58%;
   z-index: 2;
   pointer-events: none;
 }
@@ -677,12 +672,13 @@ body {
   display: grid;
   grid-template-columns: 280px 380px;
   gap: 28px;
+  transform: translateX(-55px);
 }
 
 .perfil-card {
   background: #fff;
   border: 1px solid rgba(23, 105, 255, 0.05);
-  border-radius: 14px;
+  border-radius: 18px;
   box-shadow: 0 10px 30px rgba(49, 112, 190, 0.11);
 }
 
@@ -797,10 +793,12 @@ body {
 .progresso-card {
   position: relative;
   z-index: 3;
-  width: 690px;
-  min-height: 350px;
+  width: 790px;
+  min-height: 368px;
   margin-top: 28px;
+  margin-left: -55px;
   padding: 24px 28px 26px;
+  border-radius: 18px;
 }
 
 .progresso-heading {
@@ -867,7 +865,7 @@ body {
 .stat-box {
   min-height: 72px;
   border: 1px solid #edf2f8;
-  border-radius: 10px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   gap: 9px;
@@ -900,19 +898,19 @@ body {
 .perfil-illustration {
   position: absolute;
   z-index: 2;
-  right: -52px;
-  bottom: -25px;
-  width: 520px;
-  max-width: 48%;
+  right: 8px;
+  top: 170px;
+  bottom: auto;
+  width: 850px;
+  max-width: 58%;
   pointer-events: none;
-  opacity: 0.96;
 }
 
 .perfil-illustration img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 60% 60% 12% 12%;
+  border-radius: 0;
 }
 
 .modal-card {
@@ -922,18 +920,18 @@ body {
 
 @media (max-width: 1050px) {
   .perfil-content { max-width: 900px; }
-  .perfil-top-grid { grid-template-columns: 260px 340px; }
-  .progresso-card { width: 628px; }
-  .perfil-illustration { right: -95px; max-width: 46%; }
+  .perfil-top-grid { grid-template-columns: 260px 340px; transform: translateX(-20px); }
+  .progresso-card { width: 628px; margin-left: -20px; }
+  .perfil-illustration { right: 0; top: 190px; max-width: 46%; width: 520px; }
 }
 
 @media (max-width: 850px) {
   .perfil-navbar .center-link { display: none; }
   .perfil-content { padding: 32px 20px 40px; }
   .perfil-heading-row { margin-bottom: 22px; }
-  .perfil-top-grid { grid-template-columns: 1fr 1fr; }
+  .perfil-top-grid { grid-template-columns: 1fr 1fr; transform: none; }
   .foto-card, .dados-card { min-width: 0; }
-  .progresso-card { width: 100%; }
+  .progresso-card { width: 100%; margin-left: 0; }
   .perfil-illustration { display: none; }
 }
 
