@@ -48,9 +48,27 @@ export default function LoginForm() {
         const token = data.token || data.access_token || data.accessToken || data.jwt || null;
         const user = data.user || data.usuario || (data.nome ? { nome: data.nome, email } : { email });
 
-        // atualiza contexto de autenticação
+        // atualiza contexto de autenticação e busca os dados oficiais do usuário
         try {
-          login(user, token);
+          let usuarioCompleto = user;
+          if (token) {
+            try {
+              const perfilResponse = await fetch("http://localhost:8080/usuarios/me", {
+                headers: { Authorization: `Bearer ${token}` },
+              });
+              if (perfilResponse.ok) {
+                const perfil = await perfilResponse.json();
+                usuarioCompleto = {
+                  nome: perfil.nome,
+                  email: perfil.email,
+                  avatarUrl: perfil.foto_url || null,
+                };
+              }
+            } catch (erroPerfil) {
+              console.warn("Não foi possível carregar o perfil completo", erroPerfil);
+            }
+          }
+          login(usuarioCompleto, token);
         } catch (e) {
           console.warn("Falha ao armazenar credenciais locais", e);
         }
