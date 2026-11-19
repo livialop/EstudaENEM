@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./areausuario/AuthContext";
-import TopBar from "./areainicial/TopBar";
+import NavBar from "../components/NavBar";
 import Sidebar from "./areainicial/Sidebar";
 import WelcomeBanner from "./areainicial/WelcomeBanner";
 import QuickActions from "./areainicial/QuickActions";
@@ -19,7 +19,7 @@ export default function Dashboard() {
 
   return (
     <div className="dash-app">
-      <TopBar />
+      <NavBar />
 
       <div className="dash-body">
         <Sidebar onSair={handleLogout} />

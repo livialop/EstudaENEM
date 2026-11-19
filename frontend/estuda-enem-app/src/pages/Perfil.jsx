@@ -4,7 +4,7 @@ import AcertosChart from "./areausuario/AcertosChart";
 import EditInfoModal from "./areausuario/EditInfoModal";
 import ProgressDonut from "./areausuario/ProgressDonut";
 import { useAuth } from "./areausuario/AuthContext";
-import TopBar from "./areainicial/TopBar";
+import NavBar from "../components/NavBar";
 
 export default function Perfil() {
   const { user, updateUser } = useAuth();
@@ -40,7 +40,7 @@ export default function Perfil() {
     <main className="perfil-page">
 
       <div className="navbar">
-        <TopBar />
+        <NavBar />
       </div>
 
       <h1>Meu perfil</h1>

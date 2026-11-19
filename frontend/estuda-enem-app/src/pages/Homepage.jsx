@@ -1,5 +1,5 @@
 import "../styles/App.css";
-import Navbar from "./homepage/Navbar";
+import NavBar from "../components/NavBar";
 import Hero from "./homepage/Hero";
 import Features from "./homepage/Features";
 import Footer from "./homepage/Footer";
@@ -7,7 +7,7 @@ import Footer from "./homepage/Footer";
 export default function Homepage() {
   return (
     <>
-      <Navbar />
+      <NavBar />
       <Hero />
       <Features />
       <Footer />

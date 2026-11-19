@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Simulado.css";
 
-import TopBar from "./areainicial/TopBar";
+import NavBar from "../components/NavBar";
 import Sidebar from "./areainicial/Sidebar";
 import SimuladoHero from "./simulado/SimuladoHero";
 import SimuladoResumo from "./simulado/SimuladoResumo";
@@ -12,7 +12,7 @@ import { useAuth } from "./areausuario/AuthContext";
 import { Navigate } from "react-router-dom";
 
 export default function Simulado() {
-  const { user, isAuthenticated, isLoading, logout } = useAuth();
+  const { isAuthenticated, isLoading, logout } = useAuth();
 
   if (isLoading) {
     return <div style={{ padding: 24, textAlign: "center" }}>Carregando...</div>;
@@ -24,7 +24,7 @@ export default function Simulado() {
 
   return (
     <>
-      <TopBar nome={user?.nome ?? "Fulano"} />
+      <NavBar />
 
       <div className="simulado-layout">
         <Sidebar activeItem="Simulado" onSair={logout} />

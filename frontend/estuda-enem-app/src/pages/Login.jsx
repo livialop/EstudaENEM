@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Login.css";
 
-import LoginNavbar from "./login/LoginNavbar";
+import NavBar from "../components/NavBar";
 import LoginLeft from "./login/LoginLeft";
 import LoginForm from "./login/LoginForm";
 import { useAuth } from "./areausuario/AuthContext";
@@ -20,7 +20,7 @@ export default function Login() {
 
   return (
     <>
-      <LoginNavbar />
+      <NavBar variant="login" />
 
       <main className="login-content">
         <LoginLeft />
